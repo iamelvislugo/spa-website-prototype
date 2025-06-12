@@ -17,12 +17,7 @@ Crear un prototipo funcional de sitio web para un spa local, aplicando principio
 - Navegación fluida tipo SPA
 - Secciones con animaciones suaves en JavaScript
 - Visual atractivo y estructura limpia
-- Enlace a demo interactiva en GitHub Pages
-
-
-## 🚀 Demo en vivo
-
-👉 [Ver demo en GitHub Pages](https://iamelvislugo.github.io/spa-website-prototype/)  
+- Enlace a demo interactiva en GitHub Pages 
 
 
 ## 🛠 Tecnologías utilizadas
@@ -40,6 +35,10 @@ Crear un prototipo funcional de sitio web para un spa local, aplicando principio
 El diseño de la interfaz fue realizado en Figma, respetando el branding y estilo original del spa, enfocado en la experiencia del usuario.
 
 📂 [Wireframes del sitio web](./Prototipos/)
+
+## 🚀 Demo en vivo
+
+👉 [Ver demo en GitHub Pages](https://iamelvislugo.github.io/spa-website-prototype/) 
 
 
 ## 📂 Estructura del repositorio
