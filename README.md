@@ -84,8 +84,9 @@ Este repositorio forma parte de un portafolio académico.
 Se recomienda no reutilizar los datos reales del negocio sin consentimiento previo de su fundadora.
 
 
-🧑‍💻 Autor: *Elvis Jesus Martinez Lugo*
-📫 Email: martinezlugoelvisjesus7@gmail.com  
-🔗 LinkedIn: [https://www.linkedin.com/in/elvis-jesus-martinez-lugo](https://www.linkedin.com/in/elvis-jesus-martinez-lugo)
+## Información de contacto
+- 🧑‍💻 Autor: *Elvis Jesus Martinez Lugo*
+- 📫 Email: martinezlugoelvisjesus7@gmail.com  
+- 🔗 LinkedIn: [https://www.linkedin.com/in/elvis-jesus-martinez-lugo](https://www.linkedin.com/in/elvis-jesus-martinez-lugo)
 
 
