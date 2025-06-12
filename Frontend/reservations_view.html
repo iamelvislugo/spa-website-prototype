@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas Guardadas - Spa Yao Shih</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>Última Reserva</h1>
+        <div id="reservation-details" class="mt-4"></div>
+        <button id="clear-storage" class="btn btn-danger mt-3">Borrar Reserva</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reservationDetails = document.getElementById('reservation-details');
+            const latestReservation = JSON.parse(localStorage.getItem('latestReservation'));
+
+            if (latestReservation) {
+                reservationDetails.innerHTML = `
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Nombre Completo:</strong> ${latestReservation.fullName}</li>
+                        <li class="list-group-item"><strong>Número de Teléfono:</strong> ${latestReservation.phoneNumber}</li>
+                        <li class="list-group-item"><strong>Correo Electrónico:</strong> ${latestReservation.email}</li>
+                        <li class="list-group-item"><strong>Fecha y Hora:</strong> ${latestReservation.appointmentDate}</li>
+                        <li class="list-group-item"><strong>Servicio:</strong> ${latestReservation.service}</li>
+                        <li class="list-group-item"><strong>Comentarios:</strong> ${latestReservation.comments}</li>
+                        <li class="list-group-item"><strong>Método de Pago:</strong> ${latestReservation.paymentMethod}</li>
+                    </ul>
+                `;
+            } else {
+                reservationDetails.innerHTML = '<p>No hay reservas guardadas.</p>';
+            }
+
+            document.getElementById('clear-storage').addEventListener('click', () => {
+                localStorage.removeItem('latestReservation');
+                reservationDetails.innerHTML = '<p>No hay reservas guardadas.</p>';
+            });
+        });
+    </script>
+</body>
+
+</html>

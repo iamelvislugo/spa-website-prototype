@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Libreria de iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Spa Yao Shih</title>
+
+    <style>
+        /* Estilo para deshabilitar el clic derecho en las imágenes */
+        img {
+            pointer-events: none;
+            /* Deshabilita interacciones con imágenes */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Menú -->
+    <nav class="navbar navbar-expand-sm bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">
+                <img src="https://yaoshih.s3.us-east-2.amazonaws.com/LogoI.png" alt="Logo Spa Yao Shih" style="height: 50px;">
+                <strong class="spa-name">YAO SHIH SPA</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html" data-translate="home">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-translate="services">
+                            Servicios
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="masaje_Relajacion.html" data-translate="relaxationMassage">Masaje de Relajación</a></li>
+                            <li><a class="dropdown-item" href="limpieza_Facial.html" data-translate="facialCleaning">Limpieza Facial</a></li>
+                            <li><a class="dropdown-item" href="masaje_Reductivo.html" data-translate="reducingMassage">Masaje Reductivo</a></li>
+                            <li><a class="dropdown-item" href="acupuntura.html" data-translate="acupuncture">Acupuntura</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./about.html" data-translate="aboutUs">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./know_Us.html" data-translate="knowUs">Conócenos</a>
+                    </li>
+                    <!-- Icono de carrito de compras -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="./reservations.html" title="Carrito de compras"><i class="bi bi-cart-fill"></i></a>
+                    </li>
+                    <!-- Icono de idioma -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Cambiar idioma" onclick="toggleLanguage()">
+                            <i class="bi bi-globe2"></i>
+                        </a>
+                    </li>
+                    <!-- Icono de modo oscuro -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Modo oscuro" id="darkModeToggle">
+                            <i class="bi bi-moon-stars-fill"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Servicio 2 - Limpieza Facial -->
+    <section id="limpieza_facial">
+        <div class="container mt-5">
+            <div class="card mb-3 border-0 bg-transparent">
+                <div class="row justify-content-center g-0">
+                    <div class="col-md-6 d-flex align-items-center">
+                        <div>
+                            <h2 class="card-title">
+                                <span class="text-principal" data-translate="clear">Limpieza</span>
+                                <span class="text-secundario" data-translate="facial">Facial</span>
+                            </h2>
+                            <p class="card-text" data-translate="card_clear">La limpieza facial profunda es esencial
+                                para una piel saludable y
+                                radiante. Este tratamiento elimina impurezas, toxinas y células muertas que se acumulan
+                                en la superficie, ayudando a prevenir brotes y mejorar la apariencia general del rostro.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="image-hover-container">
+                            <img src="https://yaoshih.s3.us-east-2.amazonaws.com/13.jpg"
+                                class="d-block w-100 rounded-img hover-img" alt="Masaje de Relajación">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección "Beneficios" -->
+    <section id="beneficios" class="container-fluid py-5 bg-transparent">
+        <h2 class="text-center benefit-section-title" data-translate="benefits">Beneficios</h2>
+        <div class="row text-center">
+            <!-- Columna 1 -->
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+                <img src="https://yaoshih.s3.us-east-2.amazonaws.com/24.jpg" alt="Beneficio 1" class="benefit-img">
+                <h3 class="benefit-title-1" data-translate="delete">Eliminación de Impurezas</h3>
+                <p class="benefit-description" data-translate="dele_descrip">Remueve células muertas, residuos y toxinas
+                    acumuladas, dejando la piel
+                    limpia y fresca.</p>
+            </div>
+            <!-- Columna 2 -->
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+                <img src="https://yaoshih.s3.us-east-2.amazonaws.com/26.jpg" alt="Beneficio 2" class="benefit-img">
+                <h3 class="benefit-title-2" data-translate="preve">Prevención de Brotes y Acné</h3>
+                <p class="benefit-description" data-translate="help">Ayuda a destapar los poros y a reducir el exceso de
+                    grasa, evitando la
+                    aparición de imperfecciones.</p>
+            </div>
+            <!-- Columna 3 -->
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+                <img src="https://yaoshih.s3.us-east-2.amazonaws.com/2.jpg" alt="Beneficio 3" class="benefit-img">
+                <h3 class="benefit-title-3" data-translate="hidro">Hidratación y Luminosidad</h3>
+                <p class="benefit-description" data-translate="rei">Rehidrata la piel, restaurando su equilibrio y
+                    devolviendo un aspecto
+                    suave y luminoso.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFERTAS -->
+    <section id="ofertas_por_servicio" class="container-fluid py-5 bg-transparent">
+        <h2 class="text-center section-title" data-translate="offers">Ofertas</h2>
+        <div id="carouselOfertas" class="carousel slide mx-auto" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Imagen 1 -->
+                <div class="carousel-item active">
+                    <div class="image-hover-container">
+                        <img src="https://yaoshih.s3.us-east-2.amazonaws.com/Historia+de+Instagram+Descuento+Octubre+Limpieza+Facial+Minimalista+Blanco.jpg"
+                            class="d-block w-100" alt="Oferta 1">
+                    </div>
+                </div>
+                <!-- Imagen 2 -->
+                <div class="carousel-item">
+                    <div class="image-hover-container">
+                        <img src="https://yaoshih.s3.us-east-2.amazonaws.com/Post+de+Instagram+Mensaje+del+D%C3%ADa+Motivador+Minimallista+Beige.jpg"
+                            class="d-block w-100" alt="Oferta 2">
+                    </div>
+                </div>
+                <!-- Imagen 3 -->
+                <div class="carousel-item">
+                    <div class="image-hover-container">
+                        <img src="https://yaoshih.s3.us-east-2.amazonaws.com/katherine-hanlon-dpXBsRxAVHM-unsplash.jpg"
+                            class="d-block w-100" alt="Oferta 3">
+                    </div>
+                </div>
+            </div>
+            <!-- Controles del carrusel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselOfertas" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselOfertas" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+        <div class="text-center mt-3">
+            <a href="reservations.html" class="btn custom-button" data-translate="reserve">Reservar</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <!-- Columna 2: Información de contacto -->
+            <div class="footer-section-2">
+                <div>
+                    <h3 data-translate="contactInfo">Información de Contacto</h3>
+                    <p><strong data-translate="Address">Dirección:</strong> VENEZUELA #S/N, San Juan, 42760 Tezontepec
+                        de Aldama, Hgo.</p>
+                    <p><strong data-translate="Phone">Teléfono:</strong> <a href="tel:+527731262203">773 126 2203</a>
+                    </p>
+                    <p><strong data-translate="Email">Correo electrónico: </strong> <a
+                            href="mailto:yaoshihspa@gmail.com">yaoshihspa@gmail.com</a>
+                    </p>
+                </div>
+                <h3 data-translate="followUs">Síguenos</h3>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
+            <!-- Columna 3: Horarios de atención -->
+            <div class="footer-section-2">
+                <h3 data-translate="openingHours">Horarios de Atención</h3>
+                <p><strong data-translate="Monday_to_Friday">Lunes a Viernes:</strong> 9:00 AM - 6:00 PM</p>
+                <p><strong data-translate="Saturday">Sábado:</strong> 10:00 AM - 4:00 PM</p>
+                <p><strong data-translate="Sunday">Domingo:</strong>Cerrado</p>
+            </div>
+        </div>
+
+        <!-- Derechos de autor -->
+        <div class="footer-bottom">
+            <p>© 2024 Spa YAO SHIH. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        // Deshabilitar clic derecho para evitar copiar imágenes
+        document.addEventListener('contextmenu', function (e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const body = document.body;
+
+        // Verifica si el modo oscuro estaba habilitado en localStorage
+        const darkModeEnabled = localStorage.getItem("darkMode") === "enabled";
+
+        // Aplica el modo oscuro si estaba habilitado
+        if (darkModeEnabled) {
+            body.classList.add("dark-mode");
+        }
+
+        // Alternar el modo oscuro
+        darkModeToggle.addEventListener("click", (event) => {
+            event.preventDefault(); // Previene el comportamiento por defecto del enlace
+            body.classList.toggle("dark-mode");
+
+            // Guardar el estado en localStorage
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+            }
+        });
+    </script>
+
+
+    <script>
+        const translations = {
+            en: {
+                home: "Home",
+                services: "Services",
+                relaxationMassage: "Relaxation Massage",
+                facialCleaning: "Facial Cleaning",
+                reducingMassage: "Reductive Massage",
+                acupuncture: "Acupuncture",
+                aboutUs: "About Us",
+                knowUs: "Know Us",
+                contactInfo: "Contact Information",
+                followUs: "Follow Us",
+                openingHours: "Opening Hours",
+                Email: "Email",
+                Address: "Address",
+                Phone: "Phone",
+                Monday_to_Friday: "Monday to Friday",
+                Saturday: "Saturday",
+                Sunday: "Sunday",
+                Close: "Close",
+                clear: "Facial",
+                facial: "Cleaning",
+                card_clear: "Deep facial cleansing is essential for healthy, radiant skin. This treatment removes impurities, toxins and dead cells that accumulate on the surface, helping to prevent breakouts and improve the overall appearance of the face.",
+                benefits: "Benefits",
+                delete: "Elimination of impurities",
+                dele_descrip: "Removes dead cells, residues and accumulated toxins, leaving the skin clean and fresh  clean and fresh.",
+                preve: "Acne and Breakout Prevention",
+                help: "Helps to unclog pores and reduce excess oil, preventing the appearance of imperfections.",
+                hidro: "Moisturizing and Brightening",
+                rei: "Rehydrates the skin, restoring its balance and restoring a soft and luminous appearance.",
+                offers: "Offers",
+                reserve: "Reserve"
+            },
+            es: {
+                home: "Inicio",
+                services: "Servicios",
+                relaxationMassage: "Masaje de Relajación",
+                facialCleaning: "Limpieza Facial",
+                reducingMassage: "Masaje Reductivo",
+                acupuncture: "Acupuntura",
+                aboutUs: "Nosotros",
+                knowUs: "Conócenos",
+                home: "Inicio",
+                services: "Servicios",
+                relaxationMassage: "Masaje de Relajación",
+                facialCleaning: "Limpieza Facial",
+                reducingMassage: "Masaje Reductivo",
+                acupuncture: "Acupuntura",
+                aboutUs: "Nosotros",
+                knowUs: "Conócenos",
+                contactInfo: "Información de Contacto",
+                followUs: "Síguenos",
+                openingHours: "Horarios de Atención",
+                Email: "Correo Electronico",
+                Address: "Dirección",
+                Phone: "Teleforno",
+                Monday_to_Friday: "Lunes a Viernes",
+                Saturday: "Sábado",
+                Sunday: "Domingo",
+                Close: "Cerrado",
+                clear: "Limpieza",
+                facial: "Facial",
+                card_clear: "La limpieza facial profunda es esencial para una piel saludable y radiante. Este tratamiento elimina impurezas, toxinas y células muertas que se acumulan en la superficie, ayudando a prevenir brotes y mejorar la apariencia general del rostro.",
+                benefits: "Beneficios",
+                delete: "Eliminación de Impurezas",
+                dele_descrip: "Remueve células muertas, residuos y toxinas acumuladas, dejando la piel  limpia y fresca.p",
+                preve: "Prevención de Brotes y Acné",
+                help: "Ayuda a destapar los poros y a reducir el exceso de grasa, evitando la aparición de imperfecciones.",
+                hidro: "Hidratación y Luminosidad",
+                rei: "Rehidrata la piel, restaurando su equilibrio y devolviendo un aspecto suave y luminoso.",
+                offers: "Ofertas",
+                reserve: "Reservar"
+            }
+        };
+
+        let currentLanguage = 'es';
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
+            updateLanguage();
+        }
+
+        function updateLanguage() {
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                element.innerHTML = translations[currentLanguage][key];
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <title>Spa Yao Shih</title>
+    <style>
+        /* Deshabilitar el clic derecho en las imágenes */
+        img {
+            pointer-events: none;
+            /* Deshabilita interacciones con imágenes */
+        }
+    </style>
+
+    <!-- Agrega el SDK de Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
+
+        function _0x7599(_0x453f00, _0x645509) { const _0x31a105 = _0x1cb5(); return _0x7599 = function (_0x3d4627, _0x307fdb) { _0x3d4627 = _0x3d4627 - (0xe09 + -0x1e55 + 0x123d); let _0x54c469 = _0x31a105[_0x3d4627]; return _0x54c469; }, _0x7599(_0x453f00, _0x645509); } const _0x3610f2 = _0x7599; (function (_0x44fc68, _0x18ce0) { const _0x5c66e4 = _0x7599, _0x2a4186 = _0x44fc68(); while (!![]) { try { const _0x35da70 = parseInt(_0x5c66e4(0x208)) / (0x1a3b * -0x1 + 0x51 * 0x2 + 0x1 * 0x199a) * (parseInt(_0x5c66e4(0x201)) / (0xd * -0x3c + -0x1714 + 0x1a22)) + -parseInt(_0x5c66e4(0x20e)) / (-0xb73 + 0x1 * 0x2e9 + 0x88d) * (parseInt(_0x5c66e4(0x1f2)) / (0x9 * -0x1c7 + 0x24bb * -0x1 + -0x2b * -0x13a)) + -parseInt(_0x5c66e4(0x20b)) / (-0x3f5 + 0x2 * 0x82b + -0x1c4 * 0x7) + -parseInt(_0x5c66e4(0x1fc)) / (-0x1cb5 * 0x1 + -0x31 * 0x43 + 0x298e) + parseInt(_0x5c66e4(0x1fe)) / (0x253c + 0xac0 + -0x2ff5) * (-parseInt(_0x5c66e4(0x1ff)) / (-0x1b6c + -0x1 * 0x1b7f + 0x36f3)) + -parseInt(_0x5c66e4(0x1f4)) / (-0x4 * 0x20 + -0x17b + 0x204) * (-parseInt(_0x5c66e4(0x200)) / (-0x228 * 0x7 + -0x24ca + 0x4 * 0xcfb)) + parseInt(_0x5c66e4(0x1f1)) / (0xfa8 + 0x21f3 + -0x3190); if (_0x35da70 === _0x18ce0) break; else _0x2a4186['push'](_0x2a4186['shift']()); } catch (_0x648a53) { _0x2a4186['push'](_0x2a4186['shift']()); } } }(_0x1cb5, 0x1204c0 + -0x7 * -0x1dd4f + -0x501 * 0x377)); function _0x1cb5() { const _0x570c52 = ['152895hLUufH', 'https://pr', '2a.appspot', '8911330fyWrLg', 'AIzaSyA8A2', '44364dc6ce', '417fQtlmm', 'tfJ8KppbDZ', '44043604tKJKqf', '20212USVnJu', 'Bvo1d9WkzE', '53451KiTVjX', '-default-r', 'tdb.fireba', 'prueba-f98', 'a93cf57ba3', '1:18515584', '2a.firebas', '7171:web:b', '1240008mAmzqG', '5seOEhO6A', '972993CiRAby', '64bhpaIX', '920ygefEy', '2LQgoHf', 'G-9DWWKFRL', '1851558471', '.com', 'seio.com', 'eapp.com', 'ueba-f982a']; _0x1cb5 = function () { return _0x570c52; }; return _0x1cb5(); } const firebaseConfig = { 'apiKey': _0x3610f2(0x20c) + _0x3610f2(0x1f3) + _0x3610f2(0x20f) + _0x3610f2(0x1fd), 'authDomain': _0x3610f2(0x1f7) + _0x3610f2(0x1fa) + _0x3610f2(0x206), 'databaseURL': _0x3610f2(0x209) + _0x3610f2(0x207) + _0x3610f2(0x1f5) + _0x3610f2(0x1f6) + _0x3610f2(0x205), 'projectId': _0x3610f2(0x1f7) + '2a', 'storageBucket': _0x3610f2(0x1f7) + _0x3610f2(0x20a) + _0x3610f2(0x204), 'messagingSenderId': _0x3610f2(0x203) + '71', 'appId': _0x3610f2(0x1f9) + _0x3610f2(0x1fb) + _0x3610f2(0x20d) + _0x3610f2(0x1f8) + '6', 'measurementId': _0x3610f2(0x202) + '49' };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const reservationForm = document.getElementById('reservation-form');
+            reservationForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const fullName = document.getElementById('full-name').value;
+                const phoneNumber = document.getElementById('phone-number').value;
+                const email = document.getElementById('email').value;
+                const appointmentDate = document.getElementById('appointment-date').value;
+                const service = document.getElementById('service').value;
+                const comments = document.getElementById('comments').value;
+                const paymentMethod = document.getElementById('payment-method').value;
+
+                const newReservationRef = ref(database, 'reservations/' + Date.now());
+                set(newReservationRef, {
+                    fullName: fullName,
+                    phoneNumber: phoneNumber,
+                    email: email,
+                    appointmentDate: appointmentDate,
+                    service: service,
+                    comments: comments,
+                    paymentMethod: paymentMethod
+                }).then(() => {
+                    // Guardar en localStorage
+                    const reservationData = {
+                        fullName,
+                        phoneNumber,
+                        email,
+                        appointmentDate,
+                        service,
+                        comments,
+                        paymentMethod
+                    };
+                    localStorage.setItem('latestReservation', JSON.stringify(reservationData));
+
+                    alert('Reserva confirmada');
+                    reservationForm.reset();
+                }).catch((error) => {
+                    console.error("Error al enviar la reserva: ", error);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Menú -->
+    <nav class="navbar navbar-expand-sm bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">
+                <img src="https://yaoshih.s3.us-east-2.amazonaws.com/LogoI.png" alt="Logo Spa Yao Shih"
+                    style="height: 50px;">
+                <strong class="spa-name">YAO SHIH SPA</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="./index.html">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="masaje_Relajacion.html">Masaje de Relajación</a></li>
+                            <li><a class="dropdown-item" href="limpieza_Facial.html">Limpieza Facial</a></li>
+                            <li><a class="dropdown-item" href="masaje_Reductivo.html">Masaje Reductivo</a></li>
+                            <li><a class="dropdown-item" href="acupuntura.html">Acupuntura</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li class="nav-item"><a class="nav-link active" href="./reservations.html">Reservas</a></li> -->
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="./about.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./know_Us.html">Conócenos</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Carrito de compras"><i class="bi bi-cart-fill"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Cambiar idioma"><i class="bi bi-globe2"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Modo oscuro" id="darkModeToggle"><i
+                                class="bi bi-moon-stars-fill"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Formulario de Reservas -->
+    <section id="reservacion">
+        <div class="reservation-section">
+            <div class="container">
+                <h1>
+                    <span class="text-primary-color">Solicita</span>
+                    <span class="text-secondary-color">una reserva</span>
+                </h1>
+                <form id="reservation-form" method="POST" class="reservation-form">
+                    <label for="full-name">Nombre Completo:</label>
+                    <input type="text" id="full-name" name="full-name" placeholder="Ingresa tu nombre completo"
+                        required>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="phone-number">Número de Teléfono:</label>
+                            <input type="tel" id="phone-number" name="phone-number"
+                                placeholder="Ingresa tu número de teléfono" required>
+                        </div>
+                        <div>
+                            <label for="email">Correo Electrónico:</label>
+                            <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico"
+                                required>
+                        </div>
+                    </div>
+
+                    <label for="appointment-date">Fecha y Hora Preferida:</label>
+                    <input type="datetime-local" id="appointment-date" name="appointment-date" required>
+
+                    <div>
+                        <label for="service">Servicio Solicitado:</label>
+                        <select id="service" name="service" required>
+                            <option value="" disabled selected>Selecciona un servicio</option>
+                            <option value="relajacion">Masaje de Relajación</option>
+                            <option value="facial">Limpieza Facial</option>
+                            <option value="reductivo">Masaje Reductivo</option>
+                            <option value="acupuntura">Acupuntura</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="comments">Comentarios o Solicitudes Especiales:</label>
+                        <textarea id="comments" name="comments"
+                            placeholder="Escribe cualquier preferencia o necesidad especial"></textarea>
+                    </div>
+
+                    <label for="payment-method">Método de Pago:</label>
+                    <select id="payment-method" name="payment-method" required>
+                        <option value="" disabled selected>Selecciona un método de pago</option>
+                        <option value="paypal">PayPal</option>
+                    </select>
+
+                    <div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="termsAndConditions" name="termsAndConditions" required>
+                            <label for="termsAndConditions">Acepto <a href="./termsAndConditions.html">Términos y Condiciones de Reserva</a>.</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
+                            <label for="privacy-policy">Acepto <a href="./privacyPolicy.html">Políticas de Privacidad</a>.</label>
+                        </div>
+                    </div>
+                    <div class="button-reservar">
+                        <button id="button-reservar" type="submit" class="custom-button rounded-button">Continuar y
+                            Pagar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section-2">
+                <div>
+                    <h3>Información de Contacto</h3>
+                    <p><strong>Dirección:</strong> VENEZUELA #S/N, San Juan, 42760 Tezontepec de Aldama, Hgo.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+527731262203">773 126 2203</a></p>
+                    <p><strong>Correo electrónico:</strong> <a
+                            href="mailto:yaoshihspa@gmail.com">yaoshihspa@gmail.com</a></p>
+                </div>
+                <h3>Síguenos</h3>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="footer-section-2">
+                <h3>Horarios de Atención</h3>
+                <p><strong>Lunes a Viernes:</strong> 9:00 AM - 6:00 PM</p>
+                <p><strong>Sábado:</strong> 10:00 AM - 4:00 PM</p>
+                <p><strong>Domingo:</strong> Cerrado</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Spa YAO SHIH. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+    <script src="./js/metodoDePago.js"></script>
+    <script src="./js/resetForm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const body = document.body;
+
+        // Verifica si el modo oscuro estaba habilitado en localStorage
+        const darkModeEnabled = localStorage.getItem("darkMode") === "enabled";
+
+        // Aplica el modo oscuro si estaba habilitado
+        if (darkModeEnabled) {
+            body.classList.add("dark-mode");
+        }
+
+        // Alternar el modo oscuro
+        darkModeToggle.addEventListener("click", (event) => {
+            event.preventDefault(); // Previene el comportamiento por defecto del enlace
+            body.classList.toggle("dark-mode");
+
+            // Guardar el estado en localStorage
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+            }
+        });
+    </script>
+</body>
+
+</html>

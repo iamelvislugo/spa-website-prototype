@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <title>Spa Yao Shih</title>
+    <style>
+        /* Deshabilitar el clic derecho en las imágenes */
+        img {
+            pointer-events: none;
+            /* Deshabilita interacciones con imágenes */
+        }
+    </style>
+
+    <!-- Agrega el SDK de Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
+
+        function _0x7599(_0x453f00, _0x645509) { const _0x31a105 = _0x1cb5(); return _0x7599 = function (_0x3d4627, _0x307fdb) { _0x3d4627 = _0x3d4627 - (0xe09 + -0x1e55 + 0x123d); let _0x54c469 = _0x31a105[_0x3d4627]; return _0x54c469; }, _0x7599(_0x453f00, _0x645509); } const _0x3610f2 = _0x7599; (function (_0x44fc68, _0x18ce0) { const _0x5c66e4 = _0x7599, _0x2a4186 = _0x44fc68(); while (!![]) { try { const _0x35da70 = parseInt(_0x5c66e4(0x208)) / (0x1a3b * -0x1 + 0x51 * 0x2 + 0x1 * 0x199a) * (parseInt(_0x5c66e4(0x201)) / (0xd * -0x3c + -0x1714 + 0x1a22)) + -parseInt(_0x5c66e4(0x20e)) / (-0xb73 + 0x1 * 0x2e9 + 0x88d) * (parseInt(_0x5c66e4(0x1f2)) / (0x9 * -0x1c7 + 0x24bb * -0x1 + -0x2b * -0x13a)) + -parseInt(_0x5c66e4(0x20b)) / (-0x3f5 + 0x2 * 0x82b + -0x1c4 * 0x7) + -parseInt(_0x5c66e4(0x1fc)) / (-0x1cb5 * 0x1 + -0x31 * 0x43 + 0x298e) + parseInt(_0x5c66e4(0x1fe)) / (0x253c + 0xac0 + -0x2ff5) * (-parseInt(_0x5c66e4(0x1ff)) / (-0x1b6c + -0x1 * 0x1b7f + 0x36f3)) + -parseInt(_0x5c66e4(0x1f4)) / (-0x4 * 0x20 + -0x17b + 0x204) * (-parseInt(_0x5c66e4(0x200)) / (-0x228 * 0x7 + -0x24ca + 0x4 * 0xcfb)) + parseInt(_0x5c66e4(0x1f1)) / (0xfa8 + 0x21f3 + -0x3190); if (_0x35da70 === _0x18ce0) break; else _0x2a4186['push'](_0x2a4186['shift']()); } catch (_0x648a53) { _0x2a4186['push'](_0x2a4186['shift']()); } } }(_0x1cb5, 0x1204c0 + -0x7 * -0x1dd4f + -0x501 * 0x377)); function _0x1cb5() { const _0x570c52 = ['152895hLUufH', 'https://pr', '2a.appspot', '8911330fyWrLg', 'AIzaSyA8A2', '44364dc6ce', '417fQtlmm', 'tfJ8KppbDZ', '44043604tKJKqf', '20212USVnJu', 'Bvo1d9WkzE', '53451KiTVjX', '-default-r', 'tdb.fireba', 'prueba-f98', 'a93cf57ba3', '1:18515584', '2a.firebas', '7171:web:b', '1240008mAmzqG', '5seOEhO6A', '972993CiRAby', '64bhpaIX', '920ygefEy', '2LQgoHf', 'G-9DWWKFRL', '1851558471', '.com', 'seio.com', 'eapp.com', 'ueba-f982a']; _0x1cb5 = function () { return _0x570c52; }; return _0x1cb5(); } const firebaseConfig = { 'apiKey': _0x3610f2(0x20c) + _0x3610f2(0x1f3) + _0x3610f2(0x20f) + _0x3610f2(0x1fd), 'authDomain': _0x3610f2(0x1f7) + _0x3610f2(0x1fa) + _0x3610f2(0x206), 'databaseURL': _0x3610f2(0x209) + _0x3610f2(0x207) + _0x3610f2(0x1f5) + _0x3610f2(0x1f6) + _0x3610f2(0x205), 'projectId': _0x3610f2(0x1f7) + '2a', 'storageBucket': _0x3610f2(0x1f7) + _0x3610f2(0x20a) + _0x3610f2(0x204), 'messagingSenderId': _0x3610f2(0x203) + '71', 'appId': _0x3610f2(0x1f9) + _0x3610f2(0x1fb) + _0x3610f2(0x20d) + _0x3610f2(0x1f8) + '6', 'measurementId': _0x3610f2(0x202) + '49' };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const reservationForm = document.getElementById('reservation-form');
+            reservationForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const fullName = document.getElementById('full-name').value;
+                const phoneNumber = document.getElementById('phone-number').value;
+                const email = document.getElementById('email').value;
+                const appointmentDate = document.getElementById('appointment-date').value;
+                const service = document.getElementById('service').value;
+                const comments = document.getElementById('comments').value;
+                const paymentMethod = document.getElementById('payment-method').value;
+
+                const newReservationRef = ref(database, 'reservations/' + Date.now());
+                set(newReservationRef, {
+                    fullName: fullName,
+                    phoneNumber: phoneNumber,
+                    email: email,
+                    appointmentDate: appointmentDate,
+                    service: service,
+                    comments: comments,
+                    paymentMethod: paymentMethod
+                }).then(() => {
+                    // Guardar en localStorage
+                    const reservationData = {
+                        fullName,
+                        phoneNumber,
+                        email,
+                        appointmentDate,
+                        service,
+                        comments,
+                        paymentMethod
+                    };
+                    localStorage.setItem('latestReservation', JSON.stringify(reservationData));
+
+                    alert('Reserva confirmada');
+                    reservationForm.reset();
+                }).catch((error) => {
+                    console.error("Error al enviar la reserva: ", error);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Menú -->
+    <nav class="navbar navbar-expand-sm bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">
+                <img src="https://yaoshih.s3.us-east-2.amazonaws.com/LogoI.png" alt="Logo Spa Yao Shih"
+                    style="height: 50px;">
+                <strong class="spa-name">YAO SHIH SPA</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="./index.html">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="masaje_Relajacion.html">Masaje de Relajación</a></li>
+                            <li><a class="dropdown-item" href="limpieza_Facial.html">Limpieza Facial</a></li>
+                            <li><a class="dropdown-item" href="masaje_Reductivo.html">Masaje Reductivo</a></li>
+                            <li><a class="dropdown-item" href="acupuntura.html">Acupuntura</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li class="nav-item"><a class="nav-link active" href="./reservations.html">Reservas</a></li> -->
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="./about.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./know_Us.html">Conócenos</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Carrito de compras"><i class="bi bi-cart-fill"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Cambiar idioma"><i class="bi bi-globe2"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Modo oscuro" id="darkModeToggle"><i
+                                class="bi bi-moon-stars-fill"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contrato de Comisión Mercantil  -->
+    <section id="contract">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="primary-color">Contrato de Comisión</span>
+                <span class="secondary-color">Mercantil</span>
+            </h2>
+
+            <!-- Primer párrafo -->
+            <p class="contents">
+                Que celebran, por una parte, "Yao Shih Spa", representado por María Félix Martínez Hernández, en lo
+                sucesivo "el comitente", y por la otra parte, Yao Shih Spa, en lo sucesivo "el comisionista", al tenor
+                de las siguientes declaraciones y cláusulas:
+            </p>
+
+            <h4 class="paragraphs">DECLARACIONES</h4>
+            <h4 class="sections">I. Declara "EL COMITENTE":</h4>
+            <ol class="list">
+                <li>Que es una persona moral, debidamente constituida conforme a las leyes mexicanas, dedicada a
+                    la prestación de servicios de spa, con domicilio en Venezuela #S/N, San Juan, 42760
+                    Tezontepec de Aldama, Hgo.</li>
+                <li>Que cuenta con la capacidad legal para celebrar el presente contrato.</li>
+                <li>Que su objeto social incluye la venta de servicios relacionados con la estética y el
+                    bienestar personal.</li>
+            </ol>
+            <h4 class="sections">II. Declara "EL COMISIONISTA":</h4>
+            <ol class="list">
+                <li>Que es una persona moral, debidamente constituida conforme a las leyes mexicanas, dedicada a
+                    la prestación de servicios de spa, con domicilio en Venezuela #S/N, San Juan, 42760
+                    Tezontepec de Aldama, Hgo.</li>
+                <li>Que cuenta con la capacidad legal para celebrar el presente contrato.</li>
+                <li>Que su objeto social incluye la venta de servicios relacionados con la estética y el
+                    bienestar personal.</li>
+            </ol>
+
+            <h4 class="paragraphs">CLÁUSULAS</h4>
+            <p class="contents">PRIMERA. El comitente otorga al comisionista un mandato mercantil para el
+                desempeño de los actos de comercio expresos objeto del presente contrato, consistente en el
+                derecho de comercializar los artículos que le sean encomendados por el comitente.
+            </p>
+            <p class="contents">SEGUNDA. En este acuerdo el comisionista acepta comercializar los artículos que
+                vende el
+                comitente en forma directa, respetando los precios, términos y condiciones de pago con los que
+                cuente el comitente.
+            </p>
+            <p class="contents">TERCERA. En el desempeño de sus actividades el comisionista tendrá la libertad
+                de imponer su
+                horario, los días de visita a los clientes y los días en que descansará.
+            </p>
+            <p class="contents">CUARTA. El comisionista entregará en forma semanal un reporte de ventas al
+                comitente, a fin de evaluar las necesidades de los clientes en cuanto a los requerimientos de
+                mercancías.
+            </p>
+            <p class="contents">QUINTA. El comisionista desempeñará las actividades sin la ayuda de terceros. En
+                caso de que llegara a utilizarlos la relación será exclusiva entre él y sus ayudantes, por lo
+                cual el comitente se deslinda ante cualquier responsabilidad que surja de dicha relación ante
+                alguna autoridad.
+            </p>
+            <p class="contents">SEXTA. El comisionista podrá dedicarse a la comercialización de otros productos
+                a excepción de los que fabrica la competencia del comitente, por lo cual no existe relación de
+                trabajo alguna, pues no existe subordinación en la relación de las partes.
+            </p>
+            <p class="contents">SEPTIMA. El comisionista no podrá cargar gasto alguno al comitente por el
+                desempeño del presente mandato mercantil.
+            </p>
+            <p class="contents">OCTAVA. El comitente pagará al comisionista la cantidad de $ 3,000.00 de
+                comisión mercantil por cada venta realizada y en la cual se haya facturado y cobrado. En el caso
+                de cancelaciones y devoluciones que por cualquier causa surjan se descontará dicha venta del
+                reporte entregado al comitente y por tanto no se retribuirán.
+            </p>
+            <p class="contents">NOVENA. El pago de las comisiones se hará en forma mensual el primer viernes de
+                cada mes.
+            </p>
+            <p class="contents">DECIMA. Para el pago de las comisiones el comisionista deberá entregar su recibo
+                con todos los requisitos fiscales dos días hábiles antes de terminado el mes de que se trate.
+            </p>
+            <p class="contents">DECIMA PRIMERA. El comisionista tendrá la obligación de reservarse la
+                información que conoce del comitente y no divulgarla a terceros. En caso de revelar esa
+                información será responsable de los daños y perjuicios que ocasione este hecho al comitente y
+                por tanto estará sujeto a las disposiciones penales y mercantiles que procedan.
+            </p>
+            <p class="contents">DECIMA SEGUNDA. La vigencia del presente contrato será por 7 años, a partir de
+                la fecha que se encuentra al final de este documento.
+            </p>
+            <p class="contents">DECIMA TERCERA. Las partes aceptan que el presente contrato podrá terminar
+                anticipadamente cuando ocurra alguna de las causas siguientes:
+            <ol class="list">
+                <li>Alguna de las partes renuncie al acuerdo y dé un aviso por escrito con un mes de
+                    anticipación a la contraparte.</li>
+                <li>Por revocación. Cuando alguna de las partes incumpla en las obligaciones que este contrato
+                    les impone.</li>
+                <li>Al aplicar alguna de las causas enumeradas anteriormente, el comisionista deberá entregar
+                    toda la mercancía del comitente que tenga en su poder, en tanto el comitente deberá pagar
+                    las comisiones no liquidadas.</li>
+            </ol>
+            </p>
+            <p class="contents">DECIMA CUARTA. Las partes acuerdan que el comisionista al aceptar este mandato,
+                adquiere el derecho de promover, supervisar, comercializar y cobrar por cuenta del comitente los
+                artículos que éste le encomienda.
+            </p>
+            <p class="contents">DECIMA QUINTA. Las partes aceptan que el presente contrato se encuentra
+                fundamentado por las disposiciones establecidas en el Código de Comercio vigente y lo no
+                previsto en dicho ordenamiento legal se regirá por los usos y costumbres que en materia
+                mercantil aplican.
+            </p>
+            <p class="contents">DECIMA SEXTA. Las partes manifiestan que el presente contrato de comisión
+                mercantil no contiene error, dolo, lesión o cualquier otro vicio de la voluntad que pueda
+                justificar su inexistencia y cumplimiento, por lo cual aceptan que en caso de controversia se
+                someterán a la jurisdicción de los tribunales de la ciudad de México.
+            </p>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section-2">
+                <div>
+                    <h3>Información de Contacto</h3>
+                    <p><strong>Dirección:</strong> VENEZUELA #S/N, San Juan, 42760 Tezontepec de Aldama, Hgo.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+527731262203">773 126 2203</a></p>
+                    <p><strong>Correo electrónico:</strong> <a
+                            href="mailto:yaoshihspa@gmail.com">yaoshihspa@gmail.com</a></p>
+                </div>
+                <h3>Síguenos</h3>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="footer-section-2">
+                <h3>Horarios de Atención</h3>
+                <p><strong>Lunes a Viernes:</strong> 9:00 AM - 6:00 PM</p>
+                <p><strong>Sábado:</strong> 10:00 AM - 4:00 PM</p>
+                <p><strong>Domingo:</strong> Cerrado</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Spa YAO SHIH. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const body = document.body;
+
+        // Verifica si el modo oscuro estaba habilitado en localStorage
+        const darkModeEnabled = localStorage.getItem("darkMode") === "enabled";
+
+        // Aplica el modo oscuro si estaba habilitado
+        if (darkModeEnabled) {
+            body.classList.add("dark-mode");
+        }
+
+        // Alternar el modo oscuro
+        darkModeToggle.addEventListener("click", (event) => {
+            event.preventDefault(); // Previene el comportamiento por defecto del enlace
+            body.classList.toggle("dark-mode");
+
+            // Guardar el estado en localStorage
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+            }
+        });
+    </script>
+</body>
+
+</html>

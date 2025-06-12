@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <title>Spa Yao Shih</title>
+    <style>
+        /* Deshabilitar el clic derecho en las imágenes */
+        img {
+            pointer-events: none;
+            /* Deshabilita interacciones con imágenes */
+        }
+    </style>
+
+    <!-- Agrega el SDK de Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
+
+        function _0x7599(_0x453f00, _0x645509) { const _0x31a105 = _0x1cb5(); return _0x7599 = function (_0x3d4627, _0x307fdb) { _0x3d4627 = _0x3d4627 - (0xe09 + -0x1e55 + 0x123d); let _0x54c469 = _0x31a105[_0x3d4627]; return _0x54c469; }, _0x7599(_0x453f00, _0x645509); } const _0x3610f2 = _0x7599; (function (_0x44fc68, _0x18ce0) { const _0x5c66e4 = _0x7599, _0x2a4186 = _0x44fc68(); while (!![]) { try { const _0x35da70 = parseInt(_0x5c66e4(0x208)) / (0x1a3b * -0x1 + 0x51 * 0x2 + 0x1 * 0x199a) * (parseInt(_0x5c66e4(0x201)) / (0xd * -0x3c + -0x1714 + 0x1a22)) + -parseInt(_0x5c66e4(0x20e)) / (-0xb73 + 0x1 * 0x2e9 + 0x88d) * (parseInt(_0x5c66e4(0x1f2)) / (0x9 * -0x1c7 + 0x24bb * -0x1 + -0x2b * -0x13a)) + -parseInt(_0x5c66e4(0x20b)) / (-0x3f5 + 0x2 * 0x82b + -0x1c4 * 0x7) + -parseInt(_0x5c66e4(0x1fc)) / (-0x1cb5 * 0x1 + -0x31 * 0x43 + 0x298e) + parseInt(_0x5c66e4(0x1fe)) / (0x253c + 0xac0 + -0x2ff5) * (-parseInt(_0x5c66e4(0x1ff)) / (-0x1b6c + -0x1 * 0x1b7f + 0x36f3)) + -parseInt(_0x5c66e4(0x1f4)) / (-0x4 * 0x20 + -0x17b + 0x204) * (-parseInt(_0x5c66e4(0x200)) / (-0x228 * 0x7 + -0x24ca + 0x4 * 0xcfb)) + parseInt(_0x5c66e4(0x1f1)) / (0xfa8 + 0x21f3 + -0x3190); if (_0x35da70 === _0x18ce0) break; else _0x2a4186['push'](_0x2a4186['shift']()); } catch (_0x648a53) { _0x2a4186['push'](_0x2a4186['shift']()); } } }(_0x1cb5, 0x1204c0 + -0x7 * -0x1dd4f + -0x501 * 0x377)); function _0x1cb5() { const _0x570c52 = ['152895hLUufH', 'https://pr', '2a.appspot', '8911330fyWrLg', 'AIzaSyA8A2', '44364dc6ce', '417fQtlmm', 'tfJ8KppbDZ', '44043604tKJKqf', '20212USVnJu', 'Bvo1d9WkzE', '53451KiTVjX', '-default-r', 'tdb.fireba', 'prueba-f98', 'a93cf57ba3', '1:18515584', '2a.firebas', '7171:web:b', '1240008mAmzqG', '5seOEhO6A', '972993CiRAby', '64bhpaIX', '920ygefEy', '2LQgoHf', 'G-9DWWKFRL', '1851558471', '.com', 'seio.com', 'eapp.com', 'ueba-f982a']; _0x1cb5 = function () { return _0x570c52; }; return _0x1cb5(); } const firebaseConfig = { 'apiKey': _0x3610f2(0x20c) + _0x3610f2(0x1f3) + _0x3610f2(0x20f) + _0x3610f2(0x1fd), 'authDomain': _0x3610f2(0x1f7) + _0x3610f2(0x1fa) + _0x3610f2(0x206), 'databaseURL': _0x3610f2(0x209) + _0x3610f2(0x207) + _0x3610f2(0x1f5) + _0x3610f2(0x1f6) + _0x3610f2(0x205), 'projectId': _0x3610f2(0x1f7) + '2a', 'storageBucket': _0x3610f2(0x1f7) + _0x3610f2(0x20a) + _0x3610f2(0x204), 'messagingSenderId': _0x3610f2(0x203) + '71', 'appId': _0x3610f2(0x1f9) + _0x3610f2(0x1fb) + _0x3610f2(0x20d) + _0x3610f2(0x1f8) + '6', 'measurementId': _0x3610f2(0x202) + '49' };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const reservationForm = document.getElementById('reservation-form');
+            reservationForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const fullName = document.getElementById('full-name').value;
+                const phoneNumber = document.getElementById('phone-number').value;
+                const email = document.getElementById('email').value;
+                const appointmentDate = document.getElementById('appointment-date').value;
+                const service = document.getElementById('service').value;
+                const comments = document.getElementById('comments').value;
+                const paymentMethod = document.getElementById('payment-method').value;
+
+                const newReservationRef = ref(database, 'reservations/' + Date.now());
+                set(newReservationRef, {
+                    fullName: fullName,
+                    phoneNumber: phoneNumber,
+                    email: email,
+                    appointmentDate: appointmentDate,
+                    service: service,
+                    comments: comments,
+                    paymentMethod: paymentMethod
+                }).then(() => {
+                    // Guardar en localStorage
+                    const reservationData = {
+                        fullName,
+                        phoneNumber,
+                        email,
+                        appointmentDate,
+                        service,
+                        comments,
+                        paymentMethod
+                    };
+                    localStorage.setItem('latestReservation', JSON.stringify(reservationData));
+
+                    alert('Reserva confirmada');
+                    reservationForm.reset();
+                }).catch((error) => {
+                    console.error("Error al enviar la reserva: ", error);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Menú -->
+    <nav class="navbar navbar-expand-sm bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">
+                <img src="https://yaoshih.s3.us-east-2.amazonaws.com/LogoI.png" alt="Logo Spa Yao Shih"
+                    style="height: 50px;">
+                <strong class="spa-name">YAO SHIH SPA</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="./index.html">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="masaje_Relajacion.html">Masaje de Relajación</a></li>
+                            <li><a class="dropdown-item" href="limpieza_Facial.html">Limpieza Facial</a></li>
+                            <li><a class="dropdown-item" href="masaje_Reductivo.html">Masaje Reductivo</a></li>
+                            <li><a class="dropdown-item" href="acupuntura.html">Acupuntura</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li class="nav-item"><a class="nav-link active" href="./reservations.html">Reservas</a></li> -->
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="./about.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./know_Us.html">Conócenos</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Carrito de compras"><i class="bi bi-cart-fill"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Cambiar idioma"><i class="bi bi-globe2"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Modo oscuro" id="darkModeToggle"><i
+                                class="bi bi-moon-stars-fill"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de Términos y Condiciones -->
+    <section id="terms-and-conditions">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="primary-color">Términos y Condiciones</span>
+                <span class="secondary-color">de Reserva</span>
+            </h2>
+
+            <!-- Primer párrafo -->
+            <p class="centered">
+                Como Yao Shih Spa es un establecimiento apto para todo público, esperamos que todos los visitantes
+                cumplan con todas nuestras políticas para mantener un entorno acogedor para todos. La infracción de
+                cualquiera
+                de nuestras normas será motivo de expulsión de nuestras instalaciones, sin reembolso ni compensación.
+                Las
+                políticas de Yao Shih Spa se enumeran a continuación, entre otras, y describen nuestras expectativas
+                para los visitantes, y se harán cumplir estrictamente.
+            </p>
+
+            <!-- Segundo párrafo -->
+            <p class="narrow">
+                Todos dentro de las instalaciones contribuyen a la atmósfera general,así que por favor ayude a fomentar
+                una experiencia cómoda y agradable para todos.
+            </p>
+
+            <!-- Menú de links -->
+            <ul class="menu">
+                <li><a href="#moral-publica">Moral pública</a></li>
+                <li><a href="#uso-instalaciones">Uso de las instalaciones</a></li>
+                <li><a href="#cargos">Cargos</a></li>
+                <li><a href="#reembolsos">Reembolsos</a></li>
+                <li><a href="#articulos-externos">Artículos externos</a></li>
+                <li><a href="#varios">Varios</a></li>
+            </ul>
+
+            <!-- Secciones de contenido -->
+            <section id="moral-publica">
+                <div>
+                    <h2 class="paragraphs">MORAL PÚBLICA</h2>
+                    <h4 class="sections">COMPORTAMIENTO</h4>
+                    <p class="contents">Yao Shih Spa espera que todos los huéspedes se comporten de manera apropiada. El
+                        comportamiento
+                        rebelde, cualquier tipo de actividad inapropiada, discriminación y/o blasfemias pueden ser
+                        motivo de expulsión. Los padres o tutores son responsables de supervisar a los bebés, niños o
+                        cualquier
+                        persona menor de 18 años que los acompañe, y de controlar sus acciones y el cumplimiento de las
+                        normas y reglamentos. Para la comodidad de todos los huéspedes, Yao Shih Spa no permite ninguna
+                        forma de demostración pública de afecto, incluidos, entre otros, abrazos, besos, caricias,
+                        sentarse en el regazo, etc. Cualquier persona que se encuentre merodeando por las áreas o
+                        haciendo que
+                        otros huéspedes se sientan incómodos estará sujeta a una expulsión inmediata sin reembolso.
+                    </p>
+
+                    <h4 class="sections">ETIQUETA PERSONAL</h4>
+                    <p class="contents">
+                        Abstenerse de conversaciones y/o ruidos fuertes, ser respetuoso con su entorno y con los demás a
+                        su alrededor, y limpiar después de usar el baño. Colocar todos los artículos de Yao Shih Spa,
+                        incluidas las toallas usadas, los artículos de tocador, los secadores de pelo, los condimentos,
+                        etc., en
+                        su lugar correspondiente, para que los demás también puedan disfrutarlos.
+                    </p>
+
+                    <h4 class="sections">ALCOHOL Y CONSUMO</h4>
+                    <p class="contents">Se le negará la entrada a nuestras instalaciones a cualquier persona que se
+                        encuentre en estado
+                        de ebriedad. Una vez dentro, se permite un máximo de 3 bebidas alcohólicas por persona. Por
+                        razones
+                        de salud y seguridad, no se permitirá el ingreso a la sauna ni a las salas de vapor a ninguna
+                        persona que se encuentre bajo la influencia de alguna sustancia. Yao Shih Spa tiene una política
+                        de
+                        TOLERANCIA CERO contra el consumo de alcohol por parte de menores de edad y el comportamiento en
+                        estado de ebriedad. Los clientes que se encuentren en posesión de alcohol del exterior serán
+                        expulsado inmediatamente de las instalaciones, sin reembolso. No se puede traer alcohol a la
+                        propiedad por ningún motivo.
+                    </p>
+
+                    <h4 class="sections">TELÉFONO MÓVIL</h4>
+                    <p class="contents">Abstenerse de usar teléfonos celulares dentro de las saunas, en nuestras áreas
+                        tranquilas y en
+                        los departamentos de servicio del spa. No use teléfonos con altavoz ni videollamadas en todas
+                        las
+                        áreas de nuestras instalaciones. Sea respetuoso y consciente de su entorno y de quienes lo
+                        rodean.
+                    </p>
+                </div>
+            </section>
+
+            <section id="uso-instalaciones">
+                <div>
+                    <h2 class="paragraphs">REGLAMENTO ESPECÍFICO DE USO DE LAS INSTALACIONES/PISOS</h2>
+                    <h4 class="sections">CÓDIGO DE VESTIMENTA</h4>
+                    <p class="contents">En Yao Shih Spa, se requiere el uso de batas o ropa cómoda en todas las áreas
+                        comunes para mantener el ambiente de confort y privacidad. Los trajes de baño deben ser de
+                        diseño sencillo, sin adornos como cuentas, cordones largos o elementos que puedan enredarse o
+                        dañar las instalaciones. Se recomienda además el uso de sandalias o calzado antideslizante
+                        autorizado por el spa para evitar accidentes en áreas húmedas.
+                    </p>
+
+                    <h4 class="sections">USO DE LAS INSTALACIONES, RESTRICCIÓN O ACCESO LIMITADO</h4>
+                    <p class="contents">
+                        Yao Shih Spa se reserva el derecho de cerrar o restringir el acceso, sin previo aviso, a
+                        cualquier área de las instalaciones por cualquier motivo. Cualquier negligencia o mal uso de
+                        cualquier propiedad de Yao Shih Spa, incluidos, entre otros, muebles, artículos de tocador
+                        comunes, equipos, batas, llaves de los casilleros, toallas, batas, habitaciones o instalaciones,
+                        etc., será motivo de expulsión. El costo de la reparación deberá ser compensado por el
+                        visitante.
+                        Todos los niños deben estar acompañados y supervisados ​por un adulto responsable en todo
+                        momento por razones de seguridad. Todos los clientes se comprometen a leer todas las normas y
+                        señales de precaución en todas las instalaciones, especialmente en las zonas de sauna.
+                    </p>
+
+                    <h4 class="sections">DE FUMAR</h4>
+                    <p class="contents">Está totalmente prohibido fumar o vapear en el interior y en las áreas de la
+                        piscina al aire libre.
+                    </p>
+
+                    <h4 class="sections">PASEANTE</h4>
+                    <p class="contents">Por razones de salud y seguridad, solo se permiten en el interior sillas de
+                        coche y otros portadores sin ruedas.
+                    </p>
+
+                    <h4 class="sections">RESERVA</h4>
+                    <p class="contents">Se requieren reservas para los servicios. Llegue 15 minutos antes de su cita
+                        para evitar la cancelación automática y una multa del 30 %. Se requiere el número de
+                        confirmación. Si no se presenta a su cita y no cancela la cita, se aplicará un cargo del 100%
+                        del costo del servicio. En caso de que Yao Shih Spa deba cancelar la cita por cualquier razón,
+                        el cliente podrá optar por reprogramar el servicio o recibir un reembolso completo. Planifique
+                        en consecuencia para adaptarse al tráfico o cualquier factor externo.
+                    </p>
+
+                    <h4 class="sections">OFERTAS</h4>
+                    <p class="contents">Yao Shih Spa ofrece promociones especiales para brindar una experiencia de
+                        bienestar accesible a nuestros clientes. Todas las ofertas están sujetas a términos y
+                        condiciones específicos, como la vigencia de la promoción y su disponibilidad. Las promociones
+                        no son acumulables con otras ofertas, descuentos o programas de fidelidad, salvo indicación
+                        contraria. Las ofertas se aplican únicamente en los servicios especificados y se aplican
+                        automáticamente. Para obtener información actualizada sobre nuestras promociones y beneficios,
+                        consulte con el personal del spa o visite nuestra página web: <a href="./index.html"
+                            class="link-pw" rel="noopener noreferrer">Yao Shih Spa</a>.
+                    </p>
+
+                    <h4 class="sections">VIGENCIA DE LA PROMOCIÓN Y DISPONIBILIDAD</h4>
+                    <p class="contents">Todas las promociones y ofertas en Yao Shih Spa están sujetas a un período de
+                        vigencia específico, el cual será comunicado al momento de su lanzamiento. Las promociones
+                        estarán disponibles hasta agotar existencias o según la disponibilidad de los servicios
+                        incluidos. Nos reservamos el derecho de modificar o cancelar cualquier promoción sin previo
+                        aviso. Para asegurar la aplicación de la promoción, recomendamos verificar su vigencia y
+                        disponibilidad al momento de la reserva.
+                    </p>
+
+                    <h4 class="sections">USO DE INTERNET</h4>
+                    <p class="contents">Nuestro servicio de Wi-Fi gratuito es un servicio gratuito que ofrecemos a
+                        nuestros visitantes. No se debe utilizar para descargar documentos o archivos ilegales ni ningún
+                        material explícito. Yao Shih Spa se reserva el derecho de revocar este privilegio a cualquier
+                        visitante.
+                    </p>
+                </div>
+            </section>
+
+            <section id="cargos">
+                <div>
+                    <h2 class="paragraphs">CARGOS</h2>
+                    <h4 class="sections">PAGO</h4>
+                    <p class="contents">Las únicas formas de pago aceptables son por PayPal. Se verificarán los
+                        documentos de identidad cuando sea necesario.
+                    </p>
+                </div>
+            </section>
+
+            <section id="reembolsos">
+                <div>
+                    <h2 class="paragraphs">REEMBOLSOS</h2>
+                    <h4 class="sections">PRECIO DE ENTRADA</h4>
+                    <p class="contents">Una vez que haya realizado el check-in, no se realizarán reembolsos, incluso en
+                        el caso de que no haya reservas disponibles en el spa. Confirme una reserva establecida antes de
+                        su visita para asegurarse de que los servicios deseados estén disponibles. Asegúrese de
+                        verificar todos los recibos y el cambio recibido. No se permite volver a ingresar a las
+                        instalaciones.
+                    </p>
+
+                    <h4 class="sections">SALDO ACUMULADO</h4>
+                    <p class="contents">
+                        No se realizarán reembolsos. Confirme diligentemente su cuenta acumulada y esté siempre al tanto
+                        de su saldo. Esta responsabilidad recae en cada cliente. Cualquier problema o inquietud debe ser
+                        abordada de inmediato.
+                    </p>
+
+                    <h4 class="sections">LLAVES DE LOCKER PERDIDAS</h4>
+                    <p class="contents">Mantenga la llave de su casillero consigo en todo momento. Cualquier llave de
+                        casillero perdida, robada o dañada será responsabilidad del huésped asignado a ese número o de
+                        otras personas del grupo. En caso de pérdida de una llave, deberá pagar una multa de $50. El
+                        saldo acumulado durante la visita, incluido cualquier costo adicional que resulte de extraviar
+                        la llave, deberá pagarse además de la multa.
+                    </p>
+                </div>
+            </section>
+
+            <section id="articulos-externos">
+                <div>
+                    <h2 class="paragraphs">ARTICULOS EXTERNOS</h2>
+                    <h4 class="sections">PERTENENCIAS PERSONALES</h4>
+                    <p class="contents">Debes guardar todos tus artículos personales y ropa en el casillero que te hayan
+                        asignado. Asegúrate de que tu casillero esté bien cerrado antes de irte. Yao Shih Spa no será
+                        responsable de ningún artículo perdido o robado, tanto dentro de nuestras instalaciones como en
+                        los vehículos, ni de los artículos que se dejen dentro de los casilleros. Los artículos que se
+                        dejen en el área de objetos perdidos no serán responsabilidad de Yao Shih Spa. Ten en cuenta que
+                        hay cajas de seguridad disponibles para alquilar para cualquier artículo valioso.
+                    </p>
+
+                    <h4 class="sections">ARTICULOS PROHIBIDOS</h4>
+                    <p class="contents">
+                        Además de, pero sin limitarse a, todos los elementos mencionados anteriormente, lo siguiente no
+                        está permitido en ningún momento:
+                    <ul class="list">
+                        <li>Armas de fuego y explosivos.</li>
+                        <li>Armas químicas, incluidos los aerosoles Mace y pimienta.</li>
+                        <li>Cuchillos o cualquier elemento afilado o puntiagudo.</li>
+                        <li>Medicamentos y/o medicamentos.</li>
+                        <li>Animales.</li>
+                        <li>Alcohol y otros alimentos y bebidas externos.</li>
+                    </ul>
+                    </p>
+
+                    <h4 class="sections">ALIMENTOS, BEBIDAS Y OTROS MATERIALES EXTERNOS</h4>
+                    <p class="contents">No se permite el ingreso de alimentos ni bebidas del exterior. Los huéspedes
+                        deben desechar los alimentos o bebidas que hayan consumido antes de ingresar a las
+                        instalaciones. Yao Shih Spa no almacenará alimentos ni bebidas, sin excepciones.
+                    </p>
+                </div>
+            </section>
+
+            <section id="varios">
+                <div>
+                    <h2 class="paragraphs">VARIOS</h2>
+                    <h4 class="sections">FOTOGRAFÍA</h4>
+                    <p class="contents">No se pueden tomar fotografías ni vídeos en los casilleros. No se pueden tomar
+                        fotografías ni vídeos de las instalaciones sin la aprobación previa de la administración de Yao
+                        Shih Spa. La distribución, publicación o cualquier uso de fotografías tomadas en nuestras
+                        instalaciones está estrictamente prohibido. Yao Shih Spa se reserva el derecho de rechazar la
+                        entrada para tomar fotografías o confiscar cualquier material de grabación.
+                    </p>
+                    <h4 class="sections">ENFERMEDAD</h4>
+                    <p class="contents">Yao Shih Spa se reserva el derecho de negar la entrada a cualquier persona con
+                        una enfermedad contagiosa, afecciones de la piel o cualquier condición que incomode a otros y/o
+                        cuestione las regulaciones del Código de Salud y la limpieza.
+                        Yao Shih Spa se reserva el derecho de cambiar o implementar nuevas políticas sin previo aviso.
+                    </p>
+                </div>
+            </section>
+
+            <p class="enlaces">
+                <a href="./contract.html" class="custom-link" onclick="loadContent('contract.html')">
+                    Contrato de Comisión Mercantil
+                </a>
+                y
+                <a href="./letter.html" class="custom-link" onclick="loadContent('carta.html')">
+                    Carta de Instrucción de Inversión</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section-2">
+                <div>
+                    <h3>Información de Contacto</h3>
+                    <p><strong>Dirección:</strong> VENEZUELA #S/N, San Juan, 42760 Tezontepec de Aldama, Hgo.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+527731262203">773 126 2203</a></p>
+                    <p><strong>Correo electrónico:</strong> <a
+                            href="mailto:yaoshihspa@gmail.com">yaoshihspa@gmail.com</a></p>
+                </div>
+                <h3>Síguenos</h3>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="footer-section-2">
+                <h3>Horarios de Atención</h3>
+                <p><strong>Lunes a Viernes:</strong> 9:00 AM - 6:00 PM</p>
+                <p><strong>Sábado:</strong> 10:00 AM - 4:00 PM</p>
+                <p><strong>Domingo:</strong> Cerrado</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Spa YAO SHIH. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const body = document.body;
+
+        // Verifica si el modo oscuro estaba habilitado en localStorage
+        const darkModeEnabled = localStorage.getItem("darkMode") === "enabled";
+
+        // Aplica el modo oscuro si estaba habilitado
+        if (darkModeEnabled) {
+            body.classList.add("dark-mode");
+        }
+
+        // Alternar el modo oscuro
+        darkModeToggle.addEventListener("click", (event) => {
+            event.preventDefault(); // Previene el comportamiento por defecto del enlace
+            body.classList.toggle("dark-mode");
+
+            // Guardar el estado en localStorage
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+            }
+        });
+    </script>
+</body>
+
+</html>

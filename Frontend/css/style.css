@@ -1,0 +1,2373 @@
+:root {
+  --color-dark-brown: #231709;
+  --color-medium-brown: #4B371C;
+  --color-deep-brown: #3C280D;
+  --color-warm-brown: #795C34;
+  --color-light-brown: #9A7B4F;
+  --color-coffee: #362511;
+  --color-terracotta: #80471C;
+  --color-dark-taupe: #4A3728;
+  --color-white: #f9f9f9;
+  --color-black: #000000;
+  --color-light-gray: #D4D4D4;
+  --color-text-gray: #6C6A6A;
+  --color-text-gray-ph: #B1B1B1;
+  --color-titles-p: #CF856F;
+  --color-titles-s: #906D62;
+  --color-bg-footer: #bca097c2;
+  --color-hover-elements: #B76A57;
+  /* --color-bg-footer: #BCA097; */
+}
+
+html {
+  font-size: 14px;
+  /* El tamaño base de la fuente es 16px */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+/* ====================== NARBAR ====================== */
+.navbar {
+  /* background-color: #f6f6f6a4 !important;   */
+  /* background-color: #bca097ad !important;  */
+  background-color: #cf856f98 !important;
+  position: fixed; /* Hace que la barra de navegación sea fija */
+  top: 0;
+  width: 100%; /* Abarca todo el ancho de la pantalla */
+  z-index: 1000 !important; /* Asegura que esté por encima del contenido */
+  font-family: "Raleway", sans-serif;/* Aplica la tipografía Raleway */
+}
+
+/* Cambiar el color del texto de los enlaces a blanco */
+.navbar .nav-link {
+  color: var(--color-white) !important; /* Color blanco para los enlaces */
+}
+
+/* Ajustar el espacio entre los enlaces de navegación */
+.navbar-nav .nav-item {
+  margin-left: 30px; /* Ajusta el espacio entre los links */
+}
+
+.navbar-nav .nav-item:first-child {
+  margin-left: 0; /* Elimina el margen del primer enlace */
+}
+
+/* Estilo para cuando un enlace de navegación está activo */
+.nav-link.active {
+  position: relative;
+  font-weight: bold; /* Destacar el enlace activo */
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 1px; /* Ajusta este valor si quieres que la línea esté más separada del texto */
+  width: 100%;
+  height: 3px; /* Grosor de la línea */
+  background-color: var(--color-titles-s); /* Color de la línea, puedes cambiarlo */
+}
+
+
+
+/* Añadir padding superior al body para evitar que el contenido quede oculto detrás de la barra de navegación */
+body {
+  padding-top: 70px; /* Ajusta este valor si tu navbar tiene diferente altura */
+}
+
+.spa-name {
+  color: var(--color-white);
+}
+
+
+/* ====================== SECCIÓN BIENVENIDA ====================== */
+/* Estilo de animación para la imagen en la sección de bienvenida */
+body {
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
+  /* Transición suave */
+}
+
+body.dark-mode {
+  background-color: var(--color-black);
+  /* Fondo oscuro */
+  color: var(--color-white);
+  /* Texto claro */
+}
+
+#bienvenida {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw; /* Ancho total de la ventana */
+} 
+
+
+#bienvenida .image-hover img {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+/* Espaciado entre el texto y la imágen */
+#bienvenida .col-md-6 {
+  padding-left: 40px; 
+  padding-right: 40px;
+}
+
+/* Estilos adicionales para mejorar la presentación */
+#bienvenida .card-title {
+  color: var(--color-titles-p);
+  font-family: "Impact", sans-serif;
+  font-style: normal;
+  text-align: center; /* Centra el título */
+  font-size: 2.5rem; /* Tamaño del texto */
+  margin-bottom: 30px; /* Espacio debajo del título */
+}
+
+#bienvenida .card-text {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 350;
+  font-style: normal;
+  text-align: justify;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+/* Estilo para imágenes redondeadas */
+#conocenos .rounded-img {
+  border-radius: 15px; /* Puedes ajustar el valor según el nivel de redondez deseado */
+}
+
+
+#bienvenida .image-hover img:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.image-hover img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-hover img:hover {
+  transform: translateY(-10px);
+}
+
+
+/* ====================== ANIMACIONES ====================== */
+/* 1. Desplazamiento desde la Izquierda (Slide In Left) */
+@keyframes slideInLeft {
+  from {
+      transform: translateX(-50px);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+.slide-in-left {
+  opacity: 0; /* Inicialmente invisible */
+  transition: opacity 0.5s ease;
+}
+
+.slide-in-left.active {
+  animation: slideInLeft 0.5s forwards; /* Aplica la animación */
+  opacity: 1; /* Asegura que se muestre al final de la animación */
+}
+
+
+/* 2. Desplazamiento desde la Derecha (Slide In Right) */
+@keyframes slideInRight {
+  from {
+      transform: translateX(50px);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+.slide-in-right {
+  opacity: 0; /* Inicialmente invisible */
+  transition: opacity 0.5s ease;
+}
+
+.slide-in-right.active {
+  animation: slideInRight 0.5s forwards; /* Aplica la animación */
+  opacity: 1; /* Asegura que se muestre al final de la animación */
+}
+
+
+/* 3. Desplazamiento desde Arriba (Slide In Up) */
+@keyframes slideInUp {
+  from {
+      transform: translateY(-50px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+.slide-in-up {
+  opacity: 0; /* Inicialmente invisible */
+  transition: opacity 0.5s ease;
+}
+
+.slide-in-up.active {
+  animation: slideInUp 0.5s forwards; /* Aplica la animación */
+  opacity: 1; /* Asegura que se muestre al final de la animación */
+}
+
+
+/* 4. Desplazamiento desde Abajo (Slide Up) */
+@keyframes slideInDown {
+  from {
+      transform: translateY(50px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+.slide-in-down {
+  opacity: 0; /* Inicialmente invisible */
+  transition: opacity 0.5s ease;
+}
+
+.slide-in-down.active {
+  animation: slideInDown 0.5s forwards; /* Aplica la animación */
+  opacity: 1; /* Asegura que se muestre al final de la animación */
+}
+
+
+/* 5. Escalado (Scale Up) */
+@keyframes scaleUp {
+  from {
+      transform: scale(0.8);
+      opacity: 0;
+  }
+  to {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+.scale-up {
+  opacity: 0; /* Inicialmente invisible */
+  transition: opacity 0.5s ease;
+}
+
+.scale-up.active {
+  animation: scaleUp 0.5s forwards; /* Aplica la animación */
+  opacity: 1; /* Asegura que se muestre al final de la animación */
+}
+
+
+/* 6. Desvanecimiento (Fade In) */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+.fade-in {
+  opacity: 0; /* Inicialmente invisible */
+  transition: opacity 0.5s ease;
+}
+
+.fade-in.active {
+  animation: fadeIn 0.5s forwards; /* Aplica la animación */
+  opacity: 1; /* Asegura que se muestre al final de la animación */
+}
+
+
+
+/* ====================== SECCIÓN DESTACADO ====================== */
+#destacado {
+  width: 100vw; /* Ancho total de la ventana */
+  min-height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#destacado .col-md-4 {
+  padding: 20px; /* Espaciado interno para cada columna */
+}
+
+#destacado i {
+  color: var(--color-titles-p); /* Color principal para los iconos */
+  font-size: 3rem; /* Tamaño grande para que los iconos se destaquen */
+  margin-bottom: 15px; /* Espaciado debajo del icono */
+  transition: transform 0.3s ease; /* Efecto de transición al pasar el cursor */
+}
+
+#destacado i:hover {
+  transform: scale(1.1); /* Efecto de ampliación al pasar el cursor */
+}
+
+#destacado h3 {
+  font-family: "Impact", sans-serif;
+  font-style: normal;
+  font-size: 1.6rem; /* Tamaño del texto */
+  margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+#destacado p {
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 350;
+  font-style: normal;
+  font-size: 1.2rem;
+  max-width: 80%; /* Limita el ancho del texto para mejorar la legibilidad */
+}
+
+#destacado .text-primary-color {
+  color: var(--color-titles-p); /* Color para la primera parte del texto */
+}
+
+#destacado .text-secondary-color {
+  color: var(--color-titles-s); /* Color para la segunda parte del texto */
+}
+
+
+
+/* ====================== SECCIÓN OFERTAS POR TEMPORADA ====================== */
+#ofertas_temp {
+  padding: 40px 0;
+  width: 100vw; /* Ancho total de la ventana */
+}
+
+#ofertas_temp h2 {
+  font-family: "Impact", sans-serif;
+  font-style: normal;
+  font-size: 2.5rem; /* Tamaño del texto */
+  margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+#ofertas_temp .text-primary-color {
+  color: var(--color-titles-p); /* Color para la palabra "Viernes" */
+}
+
+#ofertas_temp .text-secondary-color {
+  color: var(--color-titles-s); /* Color para las palabras "de Invierno" */
+}
+
+.description-text {
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--color-text-gray); 
+  font-weight: 350;
+  font-style: normal;
+  font-size: 1.2rem;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+.text-muted {
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--color-text-gray); 
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.2rem;
+  margin: 5px 0;
+  .dark-mode & {
+    color: var(--color-white) !important; 
+  }
+}
+
+.price-text {
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--color-titles-s); /* Color del precio */
+  font-weight: 400;
+  font-size: 2.5rem; /* Tamaño más grande para el precio */
+  margin-top: 10px;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+#ofertas_temp .custom-button {
+  background-color: var(--color-titles-p);
+  padding: 5px 40px;
+  color: var(--color-white); /* Color del texto del botón */
+  border: none; /* Elimina el borde por defecto */
+  font-family: "Raleway", sans-serif;
+  font-weight: 100;
+  font-size: 1.2rem;
+}
+
+#ofertas_temp .custom-button:hover {
+  background-color: var(--color-hover-elements); /* Color de fondo al pasar el cursor */
+}
+
+/* ====================== APARTADO TESTIMONIOS ====================== */
+#testimonios {
+  padding: 60px 0;
+}
+
+#testimonios .section-title {
+  color: var(--color-titles-p); /* Color del título */
+  font-family: "Impact", sans-serif;
+  font-style: normal;
+  font-size: 2.5rem; /* Tamaño del texto */
+  margin-bottom: 40px; /* Espacio debajo del título */
+}
+
+#carouselTestimonios {
+  max-width: 600px; /* Limita el ancho del carrusel */
+  margin: 0 auto; /* Centra el carrusel */
+}
+
+#carouselTestimonios .carousel-item img {
+  object-fit: cover; /* Ajusta la imagen al contenedor */
+  height: 400px; /* Ajusta la altura de las imágenes */
+  width: 100%;
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+
+
+
+/* ====================== SECCIÓN NOSOTROS ====================== */
+body {
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
+  /* Transición suave */
+}
+
+body.dark-mode {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+#nosotros {
+  min-height: 90vh; /* Abarca el 100% de la altura de la pantalla */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+#nosotros .card-title {
+  color: var(--color-titles-p);
+  font-family: "Impact", sans-serif;
+  font-weight: 550;
+  font-style: normal;
+  text-align: center; /* Centra el título */
+  font-size: 2.5rem; /* Tamaño del texto */
+  margin-bottom: 30px; /* Espacio debajo del título */
+}
+
+#nosotros .col-md-6 {
+  padding-left: 40px; 
+  padding-right: 40px;
+}
+
+#nosotros .card-text {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  text-align: justify;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+/* Para las imágenes redondeadas del carrusel */
+#nosotros .rounded-img {
+  border-radius: 15px; /* Ajusta el radio según el nivel de redondez que prefieras */
+}
+
+#nosotros .custom-button {
+  background-color: var(--color-warm-brown);
+  color: var(--color-white); /* Color del texto del botón */
+  border: none; /* Elimina el borde por defecto */
+  font-family: "Raleway", sans-serif;
+  font-weight: 100;
+  font-size: 1.2rem;
+}
+
+#nosotros .custom-button:hover {
+  background-color: var(--color-dark-brown); /* Un color más oscuro para el efecto hover */
+}
+
+
+/* ====================== SECCIÓN NOSOTROS - APARTADO MISIÓN ====================== */
+#vision, #mision {
+  background-color: var(--color-white);
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh; /* Ocupa al menos el 100% del alto de la pantalla */
+}
+
+#mision h2, #vision h2 {
+  color: var(--color-titles-p); 
+  font-family: "Impact", sans-serif;
+  font-weight: 550;
+  font-style: normal;
+  text-align: center; /* Centra el título */
+  font-size: 2.5rem; /* Tamaño del texto */
+  margin-bottom: 30px; /* Espacio debajo del título */
+} 
+
+#mision p, #vision p {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 350;
+  font-style: normal;
+  text-align: justify;
+  font-size: 1.2rem;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+#mision .col-md-6 {
+  padding-left: 40px; /* Ajusta según el lado opuesto */
+  padding-right: 40px; /* Ajusta el valor para más o menos espacio */
+}
+
+#vision .col-md-6 {
+  padding-left: 40px; /* Ajusta según el lado opuesto */
+  padding-right: 40px; /* Ajusta el valor para más o menos espacio */
+}
+
+#mision .rounded-img, #vision .rounded-img {
+  border-radius: 15px; /* Ajusta el valor para mayor o menor redondez */
+  overflow: hidden;    /* Asegura que las esquinas estén bien recortadas */
+}
+
+
+/* ====================== SECCIÓN VALORES ====================== */
+#valores {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Mantiene el estilo de la tarjeta */
+#valores .card {
+  background-color: transparent;
+  position: relative;
+  overflow: hidden; /* Esto asegura que todo lo que salga del contenedor de la tarjeta no se vea */
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+/* Estilo para la imagen y el título de la tarjeta */
+#valores .card .card-body .card-content {
+  transition: opacity 0.3s ease; /* Transición suave para ocultar */
+}
+
+/* Ocultar descripción inicialmente */
+#valores .card .card-body .card-text {
+  display: none;
+  transition: opacity 0.3s ease; /* Transición suave */
+}
+
+/* Estilo cuando se pasa el mouse sobre la tarjeta */
+#valores .card:hover .card-body .card-content {
+  opacity: 0; /* Ocultar imagen y nombre al pasar el mouse */
+}
+
+#valores .card:hover .card-body .card-text {
+  display: block;
+  opacity: 1; /* Mostrar la descripción */
+  text-align: center; /* Centrar el texto de la descripción */
+}
+
+/* Personalización de bordes y transformación en hover */
+#valores .border-custom {
+  border: 3px solid var(--color-titles-s);
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+#valores .border-custom:hover {
+  transform: scale(1.05);
+}
+
+/* Imagen en la tarjeta */
+#valores .card-img-top {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 150px;
+}
+
+/* Estilo para el título */
+#valores .card-title {
+  color: var(--color-titles-p);
+  font-family: "Impact", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 550;
+  font-size: 1.5rem;
+}
+
+/* Ajustes del título principal */
+#valores h2.text-center {
+  color: var(--color-titles-p);
+  font-family: "Impact", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 550;
+  font-size: 2.7rem;
+  margin-bottom: 15px;
+}
+
+#valores .card-text {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 350;
+  font-style: normal;
+  text-align: justify !important;
+  font-size: 1.2rem;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+
+/* ====================== SECCIÓN SERVICIOS - MASAJE RELAJACIÓN ====================== */
+body {
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
+  /* Transición suave */
+}
+
+body.dark-mode {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+#masaje_relajacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Ocupa al menos el 100% del alto de la pantalla */
+}
+
+#masaje_relajacion h2 {
+  color: var(--color-titles-p); /* Color café */
+  font-family: "Impact", sans-serif;
+  font-weight: 550;
+  font-style: normal;
+  text-align: center; /* Centra el título */
+  font-size: 2.5rem; /* Tamaño del texto */
+  margin-bottom: 30px; /* Espacio debajo del título */
+} 
+
+#masaje_relajacion .text-principal {
+  color: var(--color-titles-p); /* Color café */
+} 
+
+#masaje_relajacion .text-secundario {
+  color: var(--color-titles-s); /* Color café */
+} 
+
+#masaje_relajacion p {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 350;
+  font-style: normal;
+  text-align: justify;
+  font-size: 1.2rem;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+#masaje_relajacion .col-md-6 {
+  padding-left: 40px; /* Ajusta según el lado opuesto */
+  padding-right: 40px; /* Ajusta el valor para más o menos espacio */
+}
+
+#masaje_relajacion .col-md-5 {
+  padding-left: 40px; /* Ajusta según el lado opuesto */
+  padding-right: 40px; /* Ajusta el valor para más o menos espacio */
+}
+
+#masaje_relajacion .rounded-img, #vision .rounded-img {
+  border-radius: 15px; /* Ajusta el valor para mayor o menor redondez */
+  overflow: hidden;    /* Asegura que las esquinas estén bien recortadas */
+}
+
+#masaje_relajacion .image-hover-container img {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+/* Efecto para la imágen */
+#masaje_relajacion .image-hover-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.image-hover-container img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-hover-container img:hover {
+  transform: translateY(-10px);
+}
+
+/* Apartado Beneficios */
+#beneficios {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column; /* Alinea el título y las columnas verticalmente */
+  align-items: center;
+}
+
+#beneficios .benefit-section-title {
+  color: var(--color-titles-p);
+  font-family: "Impact", sans-serif;
+  font-style: normal;
+  font-size: 2.5rem; 
+  text-align: center;
+  margin-bottom: 40px; /* Ajusta el margen inferior para un mejor espacio */
+}
+
+
+#beneficios .benefit-img {
+  width: 350px; /* Tamaño de la imagen */
+  height: 200px;
+  object-fit: cover; /* Ajusta la imagen */
+  margin-bottom: 20px;
+}
+
+#beneficios .benefit-title-1, .benefit-title-3 {
+  font-family: "Impact", sans-serif;
+  color: var(--color-titles-s);
+  font-style: normal;
+  font-size: 1.5rem; /* Tamaño del texto */
+  margin-bottom: 10px; /* Espacio debajo del título */
+  max-width: 80%; /* Limita el ancho del texto para mejorar la legibilidad */
+}
+
+#beneficios .benefit-title-2 {
+  font-family: "Impact", sans-serif;
+  color: var(--color-titles-p);
+  font-style: normal;
+  font-size: 1.5rem; /* Tamaño del texto */
+  margin-bottom: 10px; /* Espacio debajo del título */
+  max-width: 80%; /* Limita el ancho del texto para mejorar la legibilidad */
+}
+
+#beneficios .benefit-description {
+  font-family: 'Segoe UI', sans-serif;
+  color:var(--color-text-gray);
+  font-weight: 350;
+  font-style: normal;
+  font-size: 1.2rem;
+  max-width: 80%; /* Limita el ancho del texto para mejorar la legibilidad */
+  text-align: center;
+  margin: 0 auto; /* Centra horizontalmente */
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+
+/* Estilo de boton para todos los servicios */
+#ofertas_por_servicio .custom-button {
+  background-color: var(--color-titles-p);
+  padding: 5px 40px;
+  color: var(--color-white);
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 350;
+  border: none; /* Elimina el borde por defecto */
+}
+
+#ofertas_por_servicio .custom-button:hover {
+  background-color: #B76A57; /* Un color más oscuro para el efecto hover */
+}
+
+/* Apartado Ofertas  */
+#ofertas_por_servicio {
+  background-color: var(--color-white);
+  padding: 60px 0;
+}
+
+#ofertas_por_servicio .section-title {
+  color: var(--color-titles-p); /* Color del título */
+  font-family: "Impact", sans-serif;
+  font-style: normal;
+  font-size: 2.5rem; /* Tamaño del texto */
+  margin-bottom: 40px; /* Espacio debajo del título */
+}
+
+#carouselOfertas {
+  max-width: 600px; /* Limita el ancho del carrusel */
+  margin: 0 auto; /* Centra el carrusel */
+}
+
+#carouselOfertas .carousel-item img {
+  object-fit: cover; /* Ajusta la imagen al contenedor */
+  height: 400px; /* Ajusta la altura de las imágenes */
+  width: 100%;
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+#ofertas_por_servicio .image-hover-container img {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#ofertas_por_servicio .image-hover-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ====================== SECCIÓN SERVICIOS - LIMPIEZA FACIAL ====================== */
+body {
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
+  /* Transición suave */
+}
+
+body.dark-mode {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+#limpieza_facial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Ocupa al menos el 100% del alto de la pantalla */
+}
+
+
+#limpieza_facial h2 {
+  color: var(--color-titles-p); /* Color café */
+  font-family: "Impact", sans-serif;
+  font-weight: 550;
+  font-style: normal;
+  text-align: center; /* Centra el título */
+  font-size: 2.5rem; /* Tamaño del texto */
+  margin-bottom: 30px; /* Espacio debajo del título */
+} 
+
+#limpieza_facial .text-principal {
+  color: var(--color-titles-p); /* Color café */
+} 
+
+#limpieza_facial .text-secundario {
+  color: var(--color-titles-s); /* Color café */
+} 
+
+#limpieza_facial p {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 350;
+  font-style: normal;
+  text-align: justify;
+  font-size: 1.2rem;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+#limpieza_facial .col-md-6 {
+  padding-left: 40px; /* Ajusta según el lado opuesto */
+  padding-right: 40px; /* Ajusta el valor para más o menos espacio */
+}
+
+#limpieza_facial .col-md-5 {
+  padding-left: 40px; /* Ajusta según el lado opuesto */
+  padding-right: 40px; /* Ajusta el valor para más o menos espacio */
+}
+
+#limpieza_facial .rounded-img, #vision .rounded-img {
+  border-radius: 15px; /* Ajusta el valor para mayor o menor redondez */
+  overflow: hidden;    /* Asegura que las esquinas estén bien recortadas */
+}
+
+
+#beneficios {
+  background-color: var(--color-white);
+  min-height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#beneficios .benefit-img {
+  width: 350px; /* Tamaño de la imagen */
+  height: 200px;
+  object-fit: cover; /* Ajusta la imagen */
+  margin-bottom: 20px;
+}
+
+#beneficios .benefit-title-1, .benefit-title-3 {
+  font-family: "Impact", sans-serif;
+  color: var(--color-titles-s);
+  font-style: normal;
+  font-size: 1.5rem; /* Tamaño del texto */
+  margin-bottom: 10px; /* Espacio debajo del título */
+  max-width: 80%; /* Limita el ancho del texto para mejorar la legibilidad */
+}
+
+#beneficios .benefit-title-2 {
+  font-family: "Impact", sans-serif;
+  color: var(--color-titles-p);
+  font-style: normal;
+  font-size: 1.5rem; /* Tamaño del texto */
+  margin-bottom: 10px; /* Espacio debajo del título */
+  max-width: 80%; /* Limita el ancho del texto para mejorar la legibilidad */
+}
+
+#beneficios .benefit-description {
+  font-family: 'Segoe UI', sans-serif;
+  color:var(--color-text-gray);
+  font-weight: 350;
+  font-style: normal;
+  font-size: 1.2rem;
+  max-width: 80%; /* Limita el ancho del texto para mejorar la legibilidad */
+  text-align: center;
+  margin: 0 auto; /* Centra horizontalmente */
+}
+
+
+
+
+
+/* ====================== SECCIÓN SERVICIOS - MASAJE REDUCTIVO ====================== */
+body {
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
+  /* Transición suave */
+}
+
+body.dark-mode {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+#masaje_reductivo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Ocupa al menos el 100% del alto de la pantalla */
+}
+
+#masaje_reductivo h2 {
+  color: var(--color-titles-p); /* Color café */
+  font-family: "Impact", sans-serif;
+  font-weight: 550;
+  font-style: normal;
+  text-align: center; /* Centra el título */
+  font-size: 2.5rem; /* Tamaño del texto */
+  margin-bottom: 30px; /* Espacio debajo del título */
+} 
+
+#masaje_reductivo .text-principal {
+  color: var(--color-titles-p); /* Color café */
+} 
+
+#masaje_reductivo .text-secundario {
+  color: var(--color-titles-s); /* Color café */
+}
+
+#masaje_reductivo p {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 350;
+  font-style: normal;
+  text-align: justify;
+  font-size: 1.2rem;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+#masaje_reductivo .col-md-6 {
+  padding-left: 40px; /* Ajusta según el lado opuesto */
+  padding-right: 40px; /* Ajusta el valor para más o menos espacio */
+}
+
+#masaje_reductivo .col-md-5 {
+  padding-left: 40px; /* Ajusta según el lado opuesto */
+  padding-right: 40px; /* Ajusta el valor para más o menos espacio */
+}
+
+#masaje_reductivo .rounded-img, #vision .rounded-img {
+  border-radius: 15px; /* Ajusta el valor para mayor o menor redondez */
+  overflow: hidden;    /* Asegura que las esquinas estén bien recortadas */
+}
+
+#masaje_reductivo .custom-button {
+  background-color: var(--color-medium-brown);
+  color: var(--color-white); /* Color del texto del botón */
+  border: none; /* Elimina el borde por defecto */
+  font-family: "Raleway", sans-serif;
+  font-weight: 100;
+  font-size: 1.2rem;
+}
+
+#masaje_reductivo .custom-button:hover {
+  background-color: var(--color-dark-brown); /* Un color más oscuro para el efecto hover */
+}
+
+
+/* ====================== SECCIÓN SERVICIOS - ACUPUNTURA ====================== */
+body {
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
+  /* Transición suave */
+}
+
+body.dark-mode {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+#acupuntura {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Ocupa al menos el 100% del alto de la pantalla */
+}
+
+#acupuntura h2 {
+  color: var(--color-titles-p); /* Color café */
+  font-family: "Impact", sans-serif;
+  font-weight: 550;
+  font-style: normal;
+  text-align: center; /* Centra el título */
+  font-size: 3rem; /* Tamaño del texto */
+  margin-bottom: 30px; /* Espacio debajo del título */
+} 
+
+#acupuntura p {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 350;
+  font-style: normal;
+  text-align: justify;
+  font-size: 1.2rem;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+#acupuntura .col-md-6 {
+  padding-left: 40px; /* Ajusta según el lado opuesto */
+  padding-right: 40px; /* Ajusta el valor para más o menos espacio */
+}
+
+#acupuntura .col-md-5 {
+  padding-left: 40px; /* Ajusta según el lado opuesto */
+  padding-right: 40px; /* Ajusta el valor para más o menos espacio */
+}
+
+#acupuntura .rounded-img, #vision .rounded-img {
+  border-radius: 15px; /* Ajusta el valor para mayor o menor redondez */
+  overflow: hidden;    /* Asegura que las esquinas estén bien recortadas */
+}
+
+#acupuntura .custom-button {
+  background-color: var(--color-medium-brown);
+  color: var(--color-white); /* Color del texto del botón */
+  border: none; /* Elimina el borde por defecto */
+  font-family: "Raleway", sans-serif;
+  font-weight: 100;
+  font-size: 1.2rem;
+}
+
+#acupuntura .custom-button:hover {
+  background-color: var(--color-dark-brown); /* Un color más oscuro para el efecto hover */
+}
+
+
+
+/* ====================== SECCIÓN RESERVACIONES ====================== */
+/* ------ FORMULARIO RESERVAS ------ */
+body {
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
+  /* Transición suave */
+}
+
+body.dark-mode {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+#reservacion {
+  display: flex;
+  justify-content: center;
+}
+
+#reservacion .reservation-section {
+  margin-top: 60px;  /* Espacio en la parte superior */
+  margin-bottom: 60px;  /* Espacio en la parte inferior */
+}
+
+
+/* Estilo del título con colores específicos para cada palabra */
+#reservacion h1 {
+  font-family: "Impact", sans-serif;
+  font-style: normal;
+  font-size: 2rem; /* Tamaño del texto */
+  margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+#reservacion .text-primary-color {
+  color: var(--color-titles-p); /* Color para la primera parte del texto */
+}
+
+#reservacion .text-secondary-color {
+  color: var(--color-titles-s); /* Color para la segunda parte del texto */
+}
+
+#reservation-form input[type="text"],
+#reservation-form input[type="tel"],
+#reservation-form input[type="email"],
+#reservation-form input[type="datetime-local"],
+#reservation-form input[type="month"],
+#reservation-form select,
+#reservation-form textarea {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #906D62;
+  outline: none;
+  color: var(--color-text-gray);
+  font-size: 1em;
+  padding: 5px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Estilo del texto de los placeholders */
+#reservation-form input::placeholder,
+#reservation-form select::placeholder,
+#reservation-form textarea::placeholder {
+  color: var(--color-text-gray-ph);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 350;
+  font-style: normal;
+  text-align: justify;
+  font-size: 1.2rem;
+}
+
+/* Estilo de los labels */
+#reservation-form label {
+  display: block;
+  margin-top: 10px;
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 350;
+  font-style: normal;
+  text-align: justify;
+  font-size: 1.2rem;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+/* Contenedor para los campos de Teléfono y Correo en una sola fila */
+#reservation-form .form-row {
+  display: flex;
+  gap: 20px; /* Espacio entre los campos */
+  margin-bottom: 20px;
+}
+
+/* Estilo del botón de enviar */
+#reservation-form .custom-button {
+  background-color: var(--color-titles-p); /* Color de fondo del botón */
+  padding: 5px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--color-white); /* Color del texto del botón */
+  font-weight: 350;
+  font-style: normal;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-reservar {
+  text-align: center; /* Centra el botón horizontalmente */
+}
+
+#reservation-form .custom-button:hover {
+  background-color: var(--color-hover-elements);
+}
+
+/* Estilo de la sección de checkbox */
+#reservation-form .checkbox-group {
+  display: flex;
+  align-items: center;
+
+}
+
+#reservation-form .checkbox-group label {
+  margin-left: 8px;
+  color: var(--color-text-gray);
+  margin-bottom: 12px;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+/* Efecto hover en enlaces de términos y políticas */
+#reservation-form .checkbox-group a {
+  color: var(--color-titles-p);
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+#reservation-form .checkbox-group a:hover {
+  color: var(--color-titles-s);
+  text-decoration: underline;
+}
+
+
+/* ------TERMINOS Y CONDICIONES ------ */
+#terms-and-conditions {
+  min-height: 90vh; /* Abarca el 100% de la altura de la pantalla */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+body.dark-mode{
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Estilos para los títulos de las ventanas emergentes */
+#terms-and-conditions .section-title {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+#terms-and-conditions .primary-color {
+  color: var(--color-titles-p);
+}
+
+#terms-and-conditions .secondary-color {
+  color: var(--color-titles-s);
+}
+
+
+#terms-and-conditions .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#terms-and-conditions .centered {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: justify;
+  margin: 20px 0;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+#terms-and-conditions .narrow {
+  color: var(--color-titles-p);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+#terms-and-conditions .menu {
+  font-family: 'Segoe UI', sans-serif;
+  font-style: normal;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-top: 60px;
+  list-style: none;
+  padding: 0;
+}
+
+#terms-and-conditions .menu li {
+  display: inline-block;
+}
+
+#terms-and-conditions .menu a {
+  text-decoration: none;
+  color: var(--color-titles-p);
+  font-weight: bold;
+}
+
+#terms-and-conditions .menu a:hover {
+  text-decoration: underline;
+}
+
+/* Efecto hover en enlaces de términos y condiciones */
+#terms-and-conditions .link-pw {
+  color: var(--color-titles-p);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 400;
+}
+
+#terms-and-conditions .link-pw:hover {
+  color: var(--color-titles-s);
+  text-decoration: underline;
+}
+
+
+
+/* SECCIÓN: MORAL PÚBLICA */
+#moral-publica {
+  /*background-color: var(--color-white); El color que quieras para el fondo */
+  min-height: 90vh; /* Abarca el 100% de la altura de la pantalla */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+#moral-publica .paragraphs {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem;
+  text-align: left;
+  margin: 20px 0;
+  margin-top: 80px;
+}
+
+#moral-publica .sections {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 450;
+  font-style: normal;
+  font-size: 1.3rem;
+  text-align: left;
+  margin-top: 25px;
+}
+
+#moral-publica .contents {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: justify;
+  .dark-mode & {
+    color: var(--color-white, #ffffff);
+  }
+}
+
+/* SECCIÓN: REGLAMENTO ESPECÍFICO DE USO DE LAS INSTALACIONES/PISOS */
+#uso-instalaciones {
+  /*background-color: var(--color-white); El color que quieras para el fondo */
+  min-height: 90vh; /* Abarca el 100% de la altura de la pantalla */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+#uso-instalaciones .paragraphs {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem;
+  text-align: left;
+  margin: 20px 0;
+  margin-top: 80px;
+}
+
+#uso-instalaciones .sections {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 450;
+  font-style: normal;
+  font-size: 1.3rem;
+  text-align: left;
+  margin-top: 25px;
+}
+
+#uso-instalaciones .contents {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: justify;
+  .dark-mode & {
+    color: var(--color-white, #ffffff);
+  }
+}
+
+
+/* SECCIÓN: CARGOS */
+#cargos {
+  /*background-color: var(--color-white);  El color que quieras para el fondo */
+  min-height: 20vh; /* Abarca el 100% de la altura de la pantalla */
+  margin: 0;
+  padding: 0;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+#cargos .paragraphs {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem;
+  text-align: left;
+  margin: 20px 0;
+  margin-top: 80px;
+}
+
+#cargos .sections {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 450;
+  font-style: normal;
+  font-size: 1.3rem;
+  text-align: left;
+  margin-top: 25px;
+}
+
+#cargos .contents {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: justify;
+  .dark-mode & {
+    color: var(--color-white, #ffffff);
+  }
+}
+
+/* SECCIÓN: REEMBOLSOS */
+#reembolsos {
+  /*background-color: var(--color-white);  El color que quieras para el fondo */
+  min-height: 20vh; /* Abarca el 100% de la altura de la pantalla */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+#reembolsos .paragraphs {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem;
+  text-align: left;
+  margin: 20px 0;
+  margin-top: 80px;
+}
+
+#reembolsos .sections {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 450;
+  font-style: normal;
+  font-size: 1.3rem;
+  text-align: left;
+  margin-top: 25px;
+}
+
+#reembolsos .contents {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: justify;
+  .dark-mode & {
+    color: var(--color-white, #ffffff);
+  }
+}
+
+/* SECCIÓN: ARTICULOS EXTERNOS */
+#articulos-externos {
+  /*background-color: var(--color-white); El color que quieras para el fondo */
+  min-height: 20vh; /* Abarca el 100% de la altura de la pantalla */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+#articulos-externos .paragraphs {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem;
+  text-align: left;
+  margin: 20px 0;
+  margin-top: 80px;
+}
+
+#articulos-externos .sections {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 450;
+  font-style: normal;
+  font-size: 1.3rem;
+  text-align: left;
+  margin-top: 25px;
+}
+
+#articulos-externos .contents {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: justify;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+#articulos-externos .list {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: justify;
+  .dark-mode & {
+    color: var(--color-white, #ffffff);
+  }
+}
+
+/* SECCIÓN: VARIOS */
+#varios {
+  /*background-color: var(--color-white); El color que quieras para el fondo */
+  min-height: 20vh; /* Abarca el 100% de la altura de la pantalla */
+  margin: 0;
+  padding: 0;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+#varios .paragraphs {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem;
+  text-align: left;
+  margin: 20px 0;
+  margin-top: 80px;
+}
+
+#varios .sections {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 450;
+  font-style: normal;
+  font-size: 1.3rem;
+  text-align: left;
+  margin-top: 25px;
+}
+
+#varios .contents {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: justify;
+  .dark-mode & {
+    color: var(--color-white, #ffffff);
+  }
+}
+
+/* ENLACES */
+.enlaces {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 350;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: justify;
+  margin-top: 50px;
+}
+
+.custom-link {
+  color: var(--color-titles-p);
+  text-decoration: none; /* Opcional, elimina el subrayado */
+}
+.custom-link:hover {
+  text-decoration: underline; /* Opcional, agrega subrayado al pasar el mouse */
+}
+
+
+/* ====================== Contrato de Comisión Mercantil ====================== */
+#contract {
+  min-height: 90vh; /* Abarca el 100% de la altura de la pantalla */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+body.dark-mode{
+  background-color: var(--color-black);
+  color: var(--color-white, #ffffff);
+}
+
+/* Estilos para los títulos */
+#contract .section-title {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+#contract .primary-color {
+  color: var(--color-titles-p);
+}
+
+#contract .secondary-color {
+  color: var(--color-titles-s);
+}
+
+#contract .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#contract .paragraphs {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 380;
+  font-style: normal;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 20px 0;
+  margin-top: 30px;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+
+#contract .contents {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: justify;
+  .dark-mode & {
+    color: var(--color-white, #ffffff);
+  }
+}
+
+#contract .sections {
+  color: var(--color-text-gray);
+  font-weight: 380;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: left;
+  max-width: 600px;
+  .dark-mode & {
+    color: var(--color-white, #ffffff);
+  }
+}
+
+#contract .list {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: justify;
+  .dark-mode & {
+    color: var(--color-white, #ffffff);
+  }
+}
+
+/* ====================== Carta de Instrucción de Inversión ====================== */
+#letter {
+  min-height: 90vh; /* Abarca el 100% de la altura de la pantalla */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+body.dark-mode{
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Estilos para los títulos */
+#letter .section-title {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+#letter .primary-color {
+  color: var(--color-titles-p);
+}
+
+#letter .secondary-color {
+  color: var(--color-titles-s);
+}
+
+#letter .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#letter .contents {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: justify;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+#letter .list {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: justify;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+/* ====================== Políticas de Privacidad ====================== */
+#politicas-privacidad {
+  min-height: 90vh; /* Abarca el 100% de la altura de la pantalla */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+body.dark-mode{
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Estilos para los títulos de las ventanas emergentes */
+#politicas-privacidad .section-title {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+#politicas-privacidad .primary-color {
+  color: var(--color-titles-p);
+}
+
+#politicas-privacidad .secondary-color {
+  color: var(--color-titles-s);
+}
+
+#politicas-privacidad .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#politicas-privacidad .narrow {
+  color: var(--color-titles-p);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 1300px;
+  margin: 40px auto;
+}
+
+#politicas-privacidad .sections {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 450;
+  font-style: normal;
+  font-size: 1.3rem;
+  text-align: left;
+  margin-top: 25px;
+}
+
+#politicas-privacidad .contents {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: justify;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+#politicas-privacidad .list {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: justify;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+/* Efecto hover en enlaces de términos y políticas */
+#politicas-privacidad .link-tac {
+  color: var(--color-titles-p);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 400;
+}
+
+#politicas-privacidad .link-tou {
+  color: var(--color-titles-p);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 400;
+}
+
+#politicas-privacidad .link-tou:hover {
+  color: var(--color-titles-s);
+  text-decoration: underline;
+}
+
+#politicas-privacidad .link-tac:hover {
+  color: var(--color-titles-s);
+  text-decoration: underline;
+}
+
+/* ====================== Condiciones de Uso del Sitio Web ====================== */
+#terms-of-use {
+  min-height: 90vh; /* Abarca el 100% de la altura de la pantalla */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+body.dark-mode{
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Estilos para los títulos de las ventanas emergentes */
+#terms-of-use .section-title {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+#terms-of-use .primary-color {
+  color: var(--color-titles-p);
+}
+
+#terms-of-use .secondary-color {
+  color: var(--color-titles-s);
+}
+
+#terms-of-use .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#terms-of-use .narrow {
+  color: var(--color-titles-p);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 1300px;
+  margin: 40px auto;
+}
+
+#terms-of-use .sections {
+  color: var(--color-titles-p);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 450;
+  font-style: normal;
+  font-size: 1.3rem;
+  text-align: left;
+  margin-top: 25px;
+}
+
+#terms-of-use .contents {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: justify;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+#terms-of-use .list {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-align: justify;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+/* Efecto hover en enlaces de términos y políticas */
+#terms-of-use .link-ws {
+  color: var(--color-titles-p);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 400;
+}
+
+#terms-of-use .link-ws:hover {
+  color: var(--color-titles-s);
+  text-decoration: underline;
+}
+
+
+/* ====================== SECCIÓN CONOCENOS ====================== */
+/* ------- APARTADO CONOCENOS ------ */
+body {
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
+  /* Transición suave */
+}
+
+body.dark-mode {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+#conocenos .justify-content-center{
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+/* Estilos adicionales para mejorar la presentación */
+#conocenos .card-title {
+  color: var(--color-titles-p);
+  font-family: "Impact", sans-serif;
+  font-style: normal;
+  text-align: center; /* Centra el título */
+  font-size: 2.5rem; /* Tamaño del texto */
+  margin-bottom: 30px; /* Espacio debajo del título */
+}
+
+/* Colores específicos para el título */
+.text-primary {
+  color: var(--color-titles-p) !important;
+}
+
+.text-secondary {
+  color: var(--color-titles-s) !important;
+}
+
+#conocenos .card-text {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 350;
+  font-style: normal;
+  text-align: justify;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+/* Estilos para la columna de texto */
+#conocenos .col-md-6 {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* Estilo para imágenes redondeadas */
+#conocenos .rounded-img {
+  border-radius: 15px; /* Puedes ajustar el valor según el nivel de redondez deseado */
+}
+
+#conocenos .image-hover img {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+#conocenos .image-hover img:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#conocenos .image-hover img {
+  transition: transform 0.3s ease-in-out;
+}
+
+#conocenos .image-hover img:hover {
+  transform: translateY(-10px);
+}
+
+/* ------ FORMULARIO CONTACTANOS ------*/
+#contact-us {
+  display: flex;
+  justify-content: center;
+}
+
+#contact-us .contact-section {
+  margin-top: 60px;  /* Espacio en la parte superior */
+  margin-bottom: 60px;  /* Espacio en la parte inferior */
+}
+
+#contact-us h1 {
+  font-family: "Impact", sans-serif;
+  font-style: normal;
+  font-size: 2rem; /* Tamaño del texto */
+  margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+#contact-us .text-primary-color {
+  color: var(--color-titles-p); /* Color para la primera parte del texto */
+}
+
+#contact-us .text-secondary-color {
+  color: var(--color-titles-s); /* Color para la segunda parte del texto */
+}
+
+/* Estilo de los campos de entrada y select */
+#contact-us .contact-form input[type="text"],
+#contact-us .contact-form input[type="tel"],
+#contact-us .contact-form input[type="email"],
+#contact-us .contact-form input[type="text"],
+#contact-us .contact-form textarea {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #906D62;
+  outline: none;
+  color: var(--color-text-gray);
+  font-size: 1em;
+  padding: 5px;
+  margin-bottom: 20px;
+  width: 80%;
+  
+}
+
+/* Estilo del texto de los placeholders */
+#contact-us .contact-form input::placeholder,
+#contact-us .contact-form select::placeholder,
+#contact-us .contact-form textarea::placeholder {
+  color: var(--color-text-gray-ph);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 350;
+  font-style: normal;
+  text-align: justify;
+  font-size: 1.2rem;
+}
+
+#contact-us .contact-form label {
+  display: block;
+  margin-top: 10px;
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 350;
+  font-style: normal;
+  text-align: justify;
+  font-size: 1.2rem;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+#contact-us .contact-info p {
+  display: block;
+  margin-top: 10px;
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 350;
+  font-style: normal;
+  text-align: justify;
+  font-size: 1.2rem;
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+/* Contenedor para los campos de Teléfono y Correo en una sola fila */
+#contact-us .form-row {
+  display: flex;
+  gap: 20px; /* Espacio entre los campos */
+  margin-bottom: 20px;
+}
+
+#contact-us .custom-button {
+  background-color: var(--color-titles-p); /* Color de fondo del botón */
+  padding: 5px 40px;
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--color-white); /* Color del texto del botón */
+  font-weight: 350;
+  font-style: normal;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.send-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el botón horizontalmente */
+}
+
+#contact-us .custom-button:hover {
+  background-color: var(--color-hover-elements);
+}
+
+
+/* ------ CONOCENOS - MAPA DE LOCALIZACIÓN ------ */
+.map-section {
+  text-align: center;
+  padding: 0;
+  height: 100vh; /* Ocupa toda la altura visible */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+/* Estilos para h2 */
+.map-section h2 {
+  color: var(--color-titles-p);
+  font-family: "Impact", sans-serif;
+  font-weight: 550;
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para p */
+.map-section p {
+  color: var(--color-text-gray);
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.2rem;
+  display: block;
+  margin-top: 15px;
+  max-width: 1200px; /* Limita el ancho del párrafo */
+  margin-left: auto; /* Centra el texto horizontalmente */
+  margin-right: auto;
+  padding: 0 20px; /* Añade padding para un mejor espacio */
+  .dark-mode & {
+    color: var(--color-white);
+  }
+}
+
+#ubicanos .map-container {
+  width: 95vw; /* Ajuste del ancho con margen */
+  height: 90vh; /* Ajuste del alto con margen */
+  border-radius: 20px; /* Esquinas redondeadas */
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Añade una sombra sutil para un mejor efecto */
+}
+
+#ubicanos iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .map-section h2 {
+    font-size: 2rem;
+  }
+
+  .map-section p {
+    font-size: 1rem;
+  }
+  
+  .map-container {
+    border-radius: 15px; /* Ajusta el radio de las esquinas en pantallas más pequeñas */
+  }
+}
+
+
+
+
+
+/* ====================== FOOTER ====================== */
+footer {
+  background-color: var(--color-bg-footer);
+  padding: 5px 5px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.footer-section-1 h3, .footer-section-2 h3 {
+  color: var(--color-titles-s);
+  font-family: "Impact", sans-serif;
+  font-weight: 450;
+  font-size: 2rem;
+  margin-top: 30px;
+}
+
+.footer-section-2 p, .footer-section-2 a {
+  color: var(--color-white);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 350;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.footer-section-2 a:hover {
+  color: var(--color-dark-brown);
+  font-weight: 500;
+}
+
+#footer-container .map-container {
+  width: 100%;
+  overflow: hidden;
+  max-height: 200px;
+  position: relative;
+}
+
+#footer-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Iconos de redes sociales */
+.footer-section-1 a {
+  color: var(--color-white);
+  font-size: 2rem; /* Tamaño de los iconos */
+  margin-right: 20px; /* Espaciado entre los iconos */
+  text-decoration: none;
+}
+
+.footer-section-1 a:hover {
+  color: var(--color-dark-brown);
+  font-weight: 500;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 3px solid var(--color-white);
+  padding-top: 10px;
+}
+
+.footer-bottom p {
+  color: var(--color-white);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+  }
+
+  .footer-section {
+    margin: 20px 0;
+  }
+}

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <title>Spa Yao Shih</title>
+    <style>
+        /* Estilo para deshabilitar el clic derecho en las imágenes */
+        img {
+            pointer-events: none;
+            /* Deshabilita interacciones con imágenes */
+        }
+    </style>
+    <!-- Agrega el SDK de Firebase -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        function _0x365a(_0x50e49c, _0x5a0fc3) { const _0x255327 = _0x1fbe(); return _0x365a = function (_0x2e0340, _0x591000) { _0x2e0340 = _0x2e0340 - (0x10e8 + 0x8 * -0x24f + -0xee * -0x3); let _0x1ae847 = _0x255327[_0x2e0340]; return _0x1ae847; }, _0x365a(_0x50e49c, _0x5a0fc3); } const _0x3095b7 = _0x365a; (function (_0x45af76, _0x122254) { const _0x30aabc = _0x365a, _0x2b5fb5 = _0x45af76(); while (!![]) { try { const _0x42f1e5 = parseInt(_0x30aabc(0x13b)) / (0x2c5 + -0x49b + -0x1d7 * -0x1) * (parseInt(_0x30aabc(0x13e)) / (0x5e5 + -0x2b7 * 0xa + 0x1543)) + parseInt(_0x30aabc(0x14f)) / (-0x602 * 0x2 + -0x1f3b + 0x2b42) * (-parseInt(_0x30aabc(0x14a)) / (0x1 * -0x1502 + -0xa99 * -0x2 + -0xb * 0x4)) + parseInt(_0x30aabc(0x14c)) / (-0x12bc + -0x540 + 0x1801) + parseInt(_0x30aabc(0x158)) / (-0x1085 + -0x1797 + 0x2822) * (parseInt(_0x30aabc(0x14b)) / (-0x6a6 + -0x26b5 + 0x2d62)) + -parseInt(_0x30aabc(0x13a)) / (-0x1 * -0x6b + 0x175d + -0x17c0) * (-parseInt(_0x30aabc(0x159)) / (0x1e6f + 0x2 * -0x111a + 0x3ce)) + -parseInt(_0x30aabc(0x155)) / (-0x1e34 + 0xef8 * -0x2 + 0x3c2e) * (-parseInt(_0x30aabc(0x143)) / (-0x67f + 0x11 * -0xc4 + 0x138e)) + -parseInt(_0x30aabc(0x13c)) / (0x1 * 0x13b3 + -0xfbd + -0x3ea) * (parseInt(_0x30aabc(0x145)) / (-0x160d + -0x8 * 0x3fe + 0x360a)); if (_0x42f1e5 === _0x122254) break; else _0x2b5fb5['push'](_0x2b5fb5['shift']()); } catch (_0x42c98e) { _0x2b5fb5['push'](_0x2b5fb5['shift']()); } } }(_0x1fbe, -0x697f6 + 0x37a97 + -0xcb * -0xe35)); function _0x1fbe() { const _0x3b2017 = ['2a.appspot', 'https://pr', '6594110gECnEd', '2a.firebas', 'G-9DWWKFRL', '383682rGrdfI', '27JcqhOY', '5seOEhO6A', '1958392pngCgN', '84281ITKKmw', '12lZtxzA', '-default-r', '22SPqdJw', 'a93cf57ba3', 'eapp.com', 'Bvo1d9WkzE', '44364dc6ce', '11ixnXUa', 'tdb.fireba', '37917321gGNyFt', '1851558471', '.com', 'seio.com', 'prueba-f98', '8UzzKlz', '63sYMHCA', '5100665lcwOwm', 'tfJ8KppbDZ', 'ueba-f982a', '698481bQMulJ', '1:18515584', 'AIzaSyA8A2', '7171:web:b']; _0x1fbe = function () { return _0x3b2017; }; return _0x1fbe(); } const firebaseConfig = { 'apiKey': _0x3095b7(0x151) + _0x3095b7(0x141) + _0x3095b7(0x14d) + _0x3095b7(0x15a), 'authDomain': _0x3095b7(0x149) + _0x3095b7(0x156) + _0x3095b7(0x140), 'databaseURL': _0x3095b7(0x154) + _0x3095b7(0x14e) + _0x3095b7(0x13d) + _0x3095b7(0x144) + _0x3095b7(0x148), 'projectId': _0x3095b7(0x149) + '2a', 'storageBucket': _0x3095b7(0x149) + _0x3095b7(0x153) + _0x3095b7(0x147), 'messagingSenderId': _0x3095b7(0x146) + '71', 'appId': _0x3095b7(0x150) + _0x3095b7(0x152) + _0x3095b7(0x142) + _0x3095b7(0x13f) + '6', 'measurementId': _0x3095b7(0x157) + '49' };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const nombre = document.getElementById('full-name').value;
+                const telefono = document.getElementById('phone-number').value;
+                const correo = document.getElementById('email').value;
+                const asunto = document.getElementById('subject').value;
+                const mensaje = document.getElementById('comments').value;
+
+                // Guarda los datos en la base de datos
+                const newContactRef = ref(database, 'Contactanos/' + Date.now());
+                set(newContactRef, {
+                    nombre: nombre,
+                    telefono: telefono,
+                    correo: correo,
+                    asunto: asunto,
+                    mensaje: mensaje
+                }).then(() => {
+                    // Guardar en localStorage
+                    const contactData = { nombre, telefono, correo, asunto, mensaje };
+                    let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
+                    contacts.push(contactData);
+                    localStorage.setItem('contacts', JSON.stringify(contacts));
+
+                    alert('Formulario Enviado');
+                    contactForm.reset();
+                }).catch((error) => {
+                    console.error("Error al enviar el correo: ", error);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Menú -->
+    <nav class="navbar navbar-expand-sm bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">
+                <img src="https://yaoshih.s3.us-east-2.amazonaws.com/LogoI.png" alt="Logo Spa Yao Shih"
+                    style="height: 50px;">
+                <strong class="spa-name">YAO SHIH SPA</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" data-translate="home">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-translate="services"> Servicios
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="masaje_Relajacion.html"
+                                    data-translate="relaxationMassage">Masaje de Relajación</a></li>
+                            <li><a class="dropdown-item" href="limpieza_Facial.html"
+                                    data-translate="facialCleaning">Limpieza Facial</a></li>
+                            <li><a class="dropdown-item" href="masaje_Reductivo.html"
+                                    data-translate="reducingMassage">Masaje Reductivo</a></li>
+                            <li><a class="dropdown-item" href="acupuntura.html"
+                                    data-translate="acupuncture">Acupuntura</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./about.html"
+                            data-translate="aboutUs">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./know_Us.html" data-translate="knowUs">Conócenos</a>
+                    </li>
+                    <!-- Icono de carrito de compras -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="./reservations.html" title="Carrito de compras"><i class="bi bi-cart-fill"></i></a>
+                    </li>
+                    <!-- Icono de idioma -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Cambiar idioma" onclick="toggleLanguage()">
+                            <i class="bi bi-globe2"></i>
+                        </a>
+                    </li>
+                    <!-- Icono de modo oscuro -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Modo oscuro" id="darkModeToggle">
+                            <i class="bi bi-moon-stars-fill"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONOCENOS -->
+    <section id="conocenos">
+        <div>
+            <div class="card mb-3 border-0 bg-transparent">
+                <div class="row justify-content-center g-0">
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h1 class="card-title">
+                                <span class="text-primary" data-translate="expe">Una experiencia</span>
+                                <span class="text-secondary" data-translate="exper">inolvidable</span>
+                            </h1>
+                            <p class="card-text custom-text" data-translate="des">
+                                Queremos que cada persona que nos visite viva una experiencia inolvidable de paz y
+                                renovación. En Yao Shih Spa, cada tratamiento se personaliza con cuidado, adaptándose a
+                                las necesidades de cada cliente.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="image-hover-container">
+                            <img src="https://yaoshih.s3.us-east-2.amazonaws.com/25.jpg"
+                                class="d-block w-100 rounded-img hover-img" alt="Imagen 1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO  -->
+    <section id="contact-us">
+        <div class="contact-section">
+            <div class="container">
+                <div class="contact-info">
+                    <h1><span class="text-primary-color" data-translate="esta">Estamos para</span> <span
+                            class="text-secondary-color" data-translate="help">ayudarte</span></h1>
+                    <p><strong data-translate="dire">Dirección:</strong> VENEZUELA #S/N, San Juan, 42760 Tezontepec de
+                        Aldama, Hgo.</p>
+                    <p><strong data-translate="pho">Teléfono:</strong> 773 126 2203</p>
+                </div>
+                <form id="contact-form" action="#" method="POST" class="contact-form">
+                    <!-- Nombre completo -->
+                    <label for="full-name" data-translate="name">Nombre Completo:</label>
+                    <input type="text" id="full-name" name="full-name" placeholder="Ingresa tu nombre completo" data-translate="mesph" required>
+                    
+                    <!-- Teléfono y Correo en una sola fila -->
+                    <div class="form-row">
+                        <div>
+                            <label for="phone-number" data-translate="num">Número de Teléfono:</label>
+                            <input type="tel" id="phone-number" name="phone-number"
+                                placeholder="Ingresa tu número de teléfono" required data-translate="numph">
+                        </div>
+                        <div>
+                            <label for="email" data-translate="corre">Correo Electrónico:</label>
+                            <input type="email" id="email" name="email" data-translate="correph" placeholder="Ingresa tu correo electrónico"
+                                required>
+                        </div>
+                    </div>
+
+                    <!-- Asunto -->
+                    <label for="subject" data-translate="asun">Asunto:</label>
+                    <input type="text" id="subject" name="subject" placeholder="Asunto" required>
+
+                    <!-- Comentarios o solicitudes especiales -->
+                    <div>
+                        <label for="comments" data-translate="mes">Mensaje:</label>
+                        <textarea id="comments" name="comments" placeholder="Escribe tu mensaje aquí" data-translate="mesph"></textarea>
+                    </div>
+
+                    <!-- Botón de enviar -->
+                    <div class="send-button">
+                        <button type="submit" class="custom-button rounded-button" data-translate="send">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPA DE LOCALIZACIÓN -->
+    <section id="ubicanos" class="bg-transparent">
+        <div class="map-section">
+            <h2 data-translate="visit">¡Visítanos y vive la experiencia en persona!</h2>
+            <p data-translate="vis">Nuestro rincón en el corazón de Tezontepec de Aldama está listo para recibirte.
+                Encuéntranos en VENEZUELA
+                #S/N, San Juan, 42760, y descubre la esencia local en cada detalle. ¡Te esperamos con los brazos
+                abiertos!</p>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7489.32264250534!2d-99.28484110822217!3d20.189822225030824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3d1530b7ca239%3A0x6be6dfb82796dfb1!2sYAO%20SHIH%20SPA!5e0!3m2!1ses!2smx!4v1729435730439!5m2!1ses!2smx"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <!-- Columna 2: Información de contacto -->
+            <div class="footer-section-2">
+                <div>
+                    <h3 data-translate="contactInfo">Información de Contacto</h3>
+                    <p><strong data-translate="Address">Dirección:</strong> VENEZUELA #S/N, San Juan, 42760 Tezontepec
+                        de Aldama, Hgo.</p>
+                    <p><strong data-translate="Phone">Teléfono:</strong> <a href="tel:+527731262203">773 126 2203</a>
+                    </p>
+                    <p><strong data-translate="Email">Correo electrónico: </strong> <a
+                            href="mailto:yaoshihspa@gmail.com">yaoshihspa@gmail.com</a>
+                    </p>
+                </div>
+                <h3 data-translate="followUs">Síguenos</h3>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
+            <!-- Columna 3: Horarios de atención -->
+            <div class="footer-section-2">
+                <h3 data-translate="openingHours">Horarios de Atención</h3>
+                <p><strong data-translate="Monday_to_Friday"> Lunes a Viernes:</strong> 9:00 AM - 6:00 PM</p>
+                <p><strong data-translate="Saturday"> Sábado:</strong> 10:00 AM - 4:00 PM</p>
+                <p><strong data-translate="Sunday"> Domingo:</strong> Cerrado</p>
+            </div>
+        </div>
+
+        <!-- Derechos de autor -->
+        <div class="footer-bottom">
+            <p>© 2024 Spa YAO SHIH. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const body = document.body;
+
+        // Verifica si el modo oscuro estaba habilitado en localStorage
+        const darkModeEnabled = localStorage.getItem("darkMode") === "enabled";
+
+        // Aplica el modo oscuro si estaba habilitado
+        if (darkModeEnabled) {
+            body.classList.add("dark-mode");
+        }
+
+        // Alternar el modo oscuro
+        darkModeToggle.addEventListener("click", (event) => {
+            event.preventDefault(); // Previene el comportamiento por defecto del enlace
+            body.classList.toggle("dark-mode");
+
+            // Guardar el estado en localStorage
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+            }
+        });
+    </script>
+
+
+
+    <script>
+        const translations = {
+            en: {
+                home: "Home",
+                services: "Services",
+                relaxationMassage: "Relaxation Massage",
+                facialCleaning: "Facial Cleaning",
+                reducingMassage: "Reductive Massage",
+                acupuncture: "Acupuncture",
+                aboutUs: "About Us",
+                knowUs: "Know Us",
+                contactInfo: "Contact Information",
+                followUs: "Follow Us",
+                openingHours: "Opening Hours",
+                Email: "Email",
+                Address: "Address",
+                Phone: "Phone",
+                Monday_to_Friday: "Monday to Friday",
+                Saturday: "Saturday",
+                Sunday: "Sunday",
+                Close: "Close",
+                expe: "An experience",
+                exper: "unforgettable",
+                des: "We want each person who visits us to live an unforgettable experience of peace and renewal. At Yao Shih Spa, each treatment is carefully personalized, adapting to the needs of each client.",
+                esta: "We are for",
+                help: "help you",
+                dire: "Address",
+                pho: "Phone",
+                name: "Full Name:",
+                num: "Telephone Number:",
+                corre: "Email",
+                asun: "Subject",
+                mes: "Message",
+                visit: "Visit us and live the experience in person!",
+                vis: "Our corner in the heart of Tezontepec de Aldama is ready to welcome you. Find us at VENEZUELA #S/N, San Juan, 42760, and discover the local essence in every detail, we are waiting for you with open arms!",
+                send: "Send"
+
+            },
+            es: {
+                home: "Inicio",
+                services: "Servicios",
+                relaxationMassage: "Masaje de Relajación",
+                facialCleaning: "Limpieza Facial",
+                reducingMassage: "Masaje Reductivo",
+                acupuncture: "Acupuntura",
+                aboutUs: "Nosotros",
+                knowUs: "Conócenos",
+                home: "Inicio",
+                services: "Servicios",
+                relaxationMassage: "Masaje de Relajación",
+                facialCleaning: "Limpieza Facial",
+                reducingMassage: "Masaje Reductivo",
+                acupuncture: "Acupuntura",
+                aboutUs: "Nosotros",
+                knowUs: "Conócenos",
+                contactInfo: "Información de Contacto",
+                followUs: "Síguenos",
+                openingHours: "Horarios de Atención",
+                Email: "Correo Electronico",
+                Address: "Dirección",
+                Phone: "Teleforno",
+                Monday_to_Friday: "Lunes a Viernes",
+                Saturday: "Sábado",
+                Sunday: "Domingo",
+                Close: "Cerrado",
+                expe: "Una experiencia",
+                exper: "inolvidable",
+                des: "Queremos que cada persona que nos visite viva una experiencia inolvidable de paz y renovación. En Yao Shih Spa, cada tratamiento se personaliza con cuidado, adaptándose a las necesidades de cada cliente.",
+                esta: "Estamos para",
+                help: "ayudarte",
+                dire: "Dirrecion",
+                pho: "Telefono",
+                name: "Nombre Completo:",
+                num: "Número de Teléfono:",
+                corre: "Correo Electrónico",
+                asun: "Asunto",
+                mes: "Mensaje",
+                visit: "¡Visítanos y vive la experiencia en persona!",
+                vis: "Nuestro rincón en el corazón de Tezontepec de Aldama está listo para recibirte. Encuéntranos en VENEZUELA #S/N, San Juan, 42760, y descubre la esencia local en cada detalle. ¡Te esperamos con los brazos abiertos!",
+                send: "Enviar"
+            }
+        };
+
+        let currentLanguage = 'es';
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
+            updateLanguage();
+        }
+
+        function updateLanguage() {
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                element.innerHTML = translations[currentLanguage][key];
+            });
+        }
+    </script>
+</body>
+
+</html>

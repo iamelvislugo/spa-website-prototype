@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <title>Spa Yao Shih</title>
+    <style>
+        /* Deshabilitar el clic derecho en las imágenes */
+        img {
+            pointer-events: none;
+            /* Deshabilita interacciones con imágenes */
+        }
+    </style>
+
+    <!-- Agrega el SDK de Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
+
+        function _0x7599(_0x453f00, _0x645509) { const _0x31a105 = _0x1cb5(); return _0x7599 = function (_0x3d4627, _0x307fdb) { _0x3d4627 = _0x3d4627 - (0xe09 + -0x1e55 + 0x123d); let _0x54c469 = _0x31a105[_0x3d4627]; return _0x54c469; }, _0x7599(_0x453f00, _0x645509); } const _0x3610f2 = _0x7599; (function (_0x44fc68, _0x18ce0) { const _0x5c66e4 = _0x7599, _0x2a4186 = _0x44fc68(); while (!![]) { try { const _0x35da70 = parseInt(_0x5c66e4(0x208)) / (0x1a3b * -0x1 + 0x51 * 0x2 + 0x1 * 0x199a) * (parseInt(_0x5c66e4(0x201)) / (0xd * -0x3c + -0x1714 + 0x1a22)) + -parseInt(_0x5c66e4(0x20e)) / (-0xb73 + 0x1 * 0x2e9 + 0x88d) * (parseInt(_0x5c66e4(0x1f2)) / (0x9 * -0x1c7 + 0x24bb * -0x1 + -0x2b * -0x13a)) + -parseInt(_0x5c66e4(0x20b)) / (-0x3f5 + 0x2 * 0x82b + -0x1c4 * 0x7) + -parseInt(_0x5c66e4(0x1fc)) / (-0x1cb5 * 0x1 + -0x31 * 0x43 + 0x298e) + parseInt(_0x5c66e4(0x1fe)) / (0x253c + 0xac0 + -0x2ff5) * (-parseInt(_0x5c66e4(0x1ff)) / (-0x1b6c + -0x1 * 0x1b7f + 0x36f3)) + -parseInt(_0x5c66e4(0x1f4)) / (-0x4 * 0x20 + -0x17b + 0x204) * (-parseInt(_0x5c66e4(0x200)) / (-0x228 * 0x7 + -0x24ca + 0x4 * 0xcfb)) + parseInt(_0x5c66e4(0x1f1)) / (0xfa8 + 0x21f3 + -0x3190); if (_0x35da70 === _0x18ce0) break; else _0x2a4186['push'](_0x2a4186['shift']()); } catch (_0x648a53) { _0x2a4186['push'](_0x2a4186['shift']()); } } }(_0x1cb5, 0x1204c0 + -0x7 * -0x1dd4f + -0x501 * 0x377)); function _0x1cb5() { const _0x570c52 = ['152895hLUufH', 'https://pr', '2a.appspot', '8911330fyWrLg', 'AIzaSyA8A2', '44364dc6ce', '417fQtlmm', 'tfJ8KppbDZ', '44043604tKJKqf', '20212USVnJu', 'Bvo1d9WkzE', '53451KiTVjX', '-default-r', 'tdb.fireba', 'prueba-f98', 'a93cf57ba3', '1:18515584', '2a.firebas', '7171:web:b', '1240008mAmzqG', '5seOEhO6A', '972993CiRAby', '64bhpaIX', '920ygefEy', '2LQgoHf', 'G-9DWWKFRL', '1851558471', '.com', 'seio.com', 'eapp.com', 'ueba-f982a']; _0x1cb5 = function () { return _0x570c52; }; return _0x1cb5(); } const firebaseConfig = { 'apiKey': _0x3610f2(0x20c) + _0x3610f2(0x1f3) + _0x3610f2(0x20f) + _0x3610f2(0x1fd), 'authDomain': _0x3610f2(0x1f7) + _0x3610f2(0x1fa) + _0x3610f2(0x206), 'databaseURL': _0x3610f2(0x209) + _0x3610f2(0x207) + _0x3610f2(0x1f5) + _0x3610f2(0x1f6) + _0x3610f2(0x205), 'projectId': _0x3610f2(0x1f7) + '2a', 'storageBucket': _0x3610f2(0x1f7) + _0x3610f2(0x20a) + _0x3610f2(0x204), 'messagingSenderId': _0x3610f2(0x203) + '71', 'appId': _0x3610f2(0x1f9) + _0x3610f2(0x1fb) + _0x3610f2(0x20d) + _0x3610f2(0x1f8) + '6', 'measurementId': _0x3610f2(0x202) + '49' };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const reservationForm = document.getElementById('reservation-form');
+            reservationForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const fullName = document.getElementById('full-name').value;
+                const phoneNumber = document.getElementById('phone-number').value;
+                const email = document.getElementById('email').value;
+                const appointmentDate = document.getElementById('appointment-date').value;
+                const service = document.getElementById('service').value;
+                const comments = document.getElementById('comments').value;
+                const paymentMethod = document.getElementById('payment-method').value;
+
+                const newReservationRef = ref(database, 'reservations/' + Date.now());
+                set(newReservationRef, {
+                    fullName: fullName,
+                    phoneNumber: phoneNumber,
+                    email: email,
+                    appointmentDate: appointmentDate,
+                    service: service,
+                    comments: comments,
+                    paymentMethod: paymentMethod
+                }).then(() => {
+                    // Guardar en localStorage
+                    const reservationData = {
+                        fullName,
+                        phoneNumber,
+                        email,
+                        appointmentDate,
+                        service,
+                        comments,
+                        paymentMethod
+                    };
+                    localStorage.setItem('latestReservation', JSON.stringify(reservationData));
+
+                    alert('Reserva confirmada');
+                    reservationForm.reset();
+                }).catch((error) => {
+                    console.error("Error al enviar la reserva: ", error);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Menú -->
+    <nav class="navbar navbar-expand-sm bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">
+                <img src="https://yaoshih.s3.us-east-2.amazonaws.com/LogoI.png" alt="Logo Spa Yao Shih"
+                    style="height: 50px;">
+                <strong class="spa-name">YAO SHIH SPA</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="./index.html">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="masaje_Relajacion.html">Masaje de Relajación</a></li>
+                            <li><a class="dropdown-item" href="limpieza_Facial.html">Limpieza Facial</a></li>
+                            <li><a class="dropdown-item" href="masaje_Reductivo.html">Masaje Reductivo</a></li>
+                            <li><a class="dropdown-item" href="acupuntura.html">Acupuntura</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li class="nav-item"><a class="nav-link active" href="./reservations.html">Reservas</a></li> -->
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="./about.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./know_Us.html">Conócenos</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Carrito de compras"><i class="bi bi-cart-fill"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Cambiar idioma"><i class="bi bi-globe2"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Modo oscuro" id="darkModeToggle"><i
+                                class="bi bi-moon-stars-fill"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Politicas de Privacidad -->
+    <section id="politicas-privacidad">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="primary-color">Políticas de</span>
+                <span class="secondary-color">Privacidad</span>
+            </h2>
+
+            <!-- Primer párrafo -->
+            <p class="contents">
+                En Yao Shih Spa, nos comprometemos a proteger la privacidad de nuestros usuarios y clientes. Esta
+                Política de Privacidad describe cómo recopilamos, usamos, protegemos y, en su caso, compartimos la
+                información personal que usted nos proporciona al interactuar con nuestro sitio web y al utilizar
+                nuestros servicios. Al acceder y utilizar este sitio, usted acepta las prácticas descritas en esta
+                Política de Privacidad. Cualquier actualización o cambio en nuestra política se publicará en esta
+                sección para su conocimiento y consulta.
+            </p>
+
+            <!-- Segundo párrafo -->
+            <p class="narrow">
+                Al continuar utilizando este sitio después de cualquier actualización o modificación en nuestra Política
+                de Privacidad, usted acepta y se compromete a cumplir con los términos actualizados. Recomendamos
+                revisar periódicamente esta sección para estar informado sobre cualquier cambio en nuestras prácticas de
+                privacidad.
+            </p>
+
+            <div>
+                <h4 class="sections">COMPORTAMIENTO</h4>
+                <p class="contents">
+                    Su privacidad es de suma importancia para nosotros. Nos adherimos a los siguientes principios
+                    fundamentales:
+                <ol class="list">
+                    <li>Recopilación mínima: No le solicitamos información personal a menos que realmente la
+                        necesitemos.</li>
+                    <li>No divulgación: No compartimos su información personal con nadie excepto para cumplir con la
+                        ley, desarrollar nuestros productos o proteger nuestros derechos.</li>
+                    <li>Almacenamiento limitado: no almacenamos información personal en nuestros servidores a menos
+                        que sea necesario para el funcionamiento continuo de uno de nuestros servicios.</li>
+                </ol>
+                </p>
+
+                <h4 class="sections">Información que recopilamos sobre usted y cómo la recopilamos</h4>
+                <p class="contents">
+                    Recopilamos varios tipos de información de y sobre los usuarios de nuestro sitio web, incluida
+                    información:
+                <ul class="list">
+                    <li>Mediante el cual usted pueda ser identificado personalmente, como su nombre, dirección de
+                        correo electrónico, número de teléfono, información de tarjeta de crédito o cualquier otro
+                        identificador mediante el cual pueda ser contactado en línea o fuera de línea (“información
+                        personal”).
+                    </li>
+                    <li>Que se refiere a usted pero que no le identifica individualmente, como por ejemplo los
+                        horarios y fechas de visitas al sitio registrados automáticamente, así como el contenido de
+                        los comentarios públicos y publicaciones de un usuario en el sitio.
+                    </li>
+                    <li>Mediante el cual usted pueda ser identificado personalmente, como su nombre, dirección de
+                        correo electrónico, número de teléfono, información de tarjeta de crédito o cualquier otro
+                        identificador mediante el cual pueda ser contactado en línea o fuera de línea (“información
+                        personal”).
+                    </li>
+                </ul>
+                </p>
+                <p class="contents">Acerca de su conexión a Internet, el equipo que utiliza para acceder a nuestro
+                    sitio web y
+                    detalles de uso. Recopilamos esta información:
+                <ul class="list">
+                    <li>Directamente de usted cuando nos lo proporciona.
+                    </li>
+                    <li>Automáticamente mientras navega por el sitio. La información recopilada automáticamente
+                        puede incluir detalles de uso, direcciones IP e información recopilada a través de cookies,
+                        balizas web y otras tecnologías de seguimiento.
+                    </li>
+                    <li>De terceros, por ejemplo, nuestros socios comerciales.
+                    </li>
+                    <li>Información que usted nos proporciona.
+                    </li>
+                </ul>
+                </p>
+
+                <p class="contents">Acerca de su conexión a Internet, el equipo que utiliza para acceder a nuestro
+                    sitio web y
+                    detalles de uso. Recopilamos esta información:
+                <ul class="list">
+                    <li>Directamente de usted cuando nos lo proporciona.
+                    </li>
+                    <li>Automáticamente mientras navega por el sitio. La información recopilada automáticamente
+                        puede incluir detalles de uso, direcciones IP e información recopilada a través de cookies,
+                        balizas web y otras tecnologías de seguimiento.
+                    </li>
+                    <li>De terceros, por ejemplo, nuestros socios comerciales.
+                    </li>
+                    <li>Información que usted nos proporciona.
+                    </li>
+                </ul>
+                </p>
+
+                <p class="contents">La información que recopilamos en nuestro sitio web o a través de él puede
+                    incluir:
+                <ul class="list">
+                    <li>Información que usted proporciona al completar formularios en nuestro sitio web. Esto
+                        incluye información proporcionada al momento de registrarse para usar nuestro sitio web o
+                        solicitar servicios adicionales. También podemos solicitarle información cuando participa en
+                        una promoción patrocinada por nosotros y cuando informa un problema con nuestro sitio web.
+                    </li>
+                    <li>Registros y copias de su correspondencia (incluidas direcciones de correo electrónico), si
+                        se comunica con nosotros.
+                    </li>
+                    <li>Sus respuestas a las encuestas que podríamos solicitarle que complete con fines de
+                        investigación.
+                    </li>
+                    <li>Detalles de las transacciones que realice a través de nuestro sitio web y del cumplimiento
+                        de sus pedidos. Es posible que se le solicite que proporcione información financiera antes
+                        de
+                        realizar un pedido a través de nuestro sitio web.
+                    </li>
+                    <li>Sus consultas de búsqueda en el sitio web.
+                    </li>
+                </ul>
+                </p>
+                <p class="contents">
+                    También puede proporcionar información para que se publique o muestre (en adelante,
+                    “Testimonios”) en áreas públicas del Sitio web, o transmitida a otros usuarios del Sitio web o
+                    terceros (colectivamente, “Redes Sociales”). Sus Contribuciones de usuario se publican y
+                    transmiten a otros bajo su propio riesgo. Aunque limitamos el acceso a ciertas páginas o puede
+                    establecer ciertas configuraciones de privacidad para dicha información iniciando sesión en el
+                    perfil de su cuenta, tenga en cuenta que ninguna medida de seguridad es perfecta o impenetrable.
+                    Además, no podemos controlar las acciones de otros usuarios del Sitio web con quienes pueda
+                    optar por compartir sus Contribuciones de usuario. Por lo tanto, no podemos garantizar y no
+                    garantizamos que sus Contribuciones de usuario no sean vistas por personas no autorizadas.
+                </p>
+
+
+                <h4 class="sections">Cómo utilizamos su información</h4>
+                <p class="contents">Utilizamos la información que recopilamos sobre usted o que usted nos
+                    proporciona, incluida cualquier información personal:
+                <ul class="list">
+                    <li>Para presentarle nuestro sitio web y sus contenidos.
+                    </li>
+                    <li>Para proporcionarle información, productos o servicios que nos solicite.
+                    </li>
+                    <li>Para cumplir con cualquier otro propósito para el cual usted lo proporcione.
+                    </li>
+                    <li>Para cumplir con nuestras obligaciones y hacer cumplir nuestros derechos derivados de
+                        cualquier contrato celebrado entre usted y nosotros, incluidos los de facturación y cobro.
+                    </li>
+                    <li>Para notificarle sobre cambios en nuestro sitio web o cualquier servicio que ofrecemos o
+                        proporcionamos a través de él.
+                    </li>
+                    <li>
+                        Para permitirle participar en funciones interactivas de nuestro sitio web.
+                    </li>
+                    <li>
+                        Recomendar tratamientos de spa y bienestar adecuados en función de cualquier condición
+                        médica preexistente o actual.
+                    </li>
+                    <li>
+                        De cualquier otra forma que podamos describir cuando usted proporcione la información.
+                    </li>
+                    <li>
+                        Para cualquier otro propósito con su consentimiento.
+                    </li>
+                </ul>
+                </p>
+                <p class="contents">
+                    También podemos utilizar su información para comunicarnos con usted acerca de nuestros propios
+                    bienes y servicios y los de terceros que puedan ser de su interés. Podemos utilizar la
+                    información que hemos recopilado de usted para poder mostrar anuncios a las audiencias objetivo
+                    de nuestros anunciantes. Aunque no revelamos su información personal para estos fines sin su
+                    consentimiento, si hace clic en un anuncio o interactúa de alguna otra manera con él, el
+                    anunciante puede asumir que cumple con sus criterios de audiencia objetivo.
+                </p>
+
+                <h4 class="sections">Divulgación de su información</h4>
+                <p class="contents">Podemos divulgar información personal que recopilemos o que usted proporcione
+                    como se describe en esta política de privacidad:
+                <ul class="list">
+                    <li>A nuestras subsidiarias y afiliadas.
+                    </li>
+                    <li>
+                        A los contratistas, proveedores de servicios que utilizamos para respaldar nuestro negocio y
+                        que están sujetos a obligaciones contractuales de mantener la confidencialidad de la
+                        información personal y utilizarla únicamente para los fines para los que la divulgamos.
+                    </li>
+                    <li>A un comprador u otro sucesor en caso de fusión, desinversión, reestructuración,
+                        reorganización, disolución u otra venta o transferencia de algunos o todos los activos de
+                        Yao Shih Spa, ya sea como un negocio en marcha o como parte de una quiebra, liquidación o
+                        procedimiento similar, en el que la información personal que Yao Shih Spa mantiene sobre los
+                        usuarios de nuestro sitio web se encuentra entre los activos transferidos.
+                    </li>
+                    <li>A terceros para que le comercialicen sus productos o servicios si usted ha dado su
+                        consentimiento para ello. Requerimos contractualmente que estos terceros mantengan la
+                        confidencialidad de la información personal y la utilicen únicamente para los fines para los
+                        que se la revelamos. Para obtener más información, consulte Opciones sobre cómo usamos y
+                        divulgamos su información.
+                    </li>
+                    <li>Para cumplir con el propósito para el cual nos lo proporciona. Por ejemplo, si nos
+                        proporciona una dirección de correo electrónico para contactar con nosotros en nuestro sitio
+                        web, transmitiremos el contenido de ese correo electrónico y su dirección de correo
+                        electrónico a los destinatarios.
+                    </li>
+                    <li>
+                        Para cualquier otro propósito que le revelemos cuando usted proporciona la información.
+                    </li>
+                    <li>
+                        Con su consentimiento.
+                    </li>
+                </ul>
+                </p>
+                <p class="contents">
+                    También podemos divulgar su información personal:
+                <ul class="list">
+                    <li>Para cumplir con cualquier orden judicial, ley o proceso legal, incluso para responder a
+                        cualquier solicitud gubernamental o regulatoria.
+                    </li>
+                    <li>
+                        Para hacer cumplir o aplicar nuestros <a href="./termsAndConditions.html" class="link-tac"
+                            rel="noopener noreferrer">Términos y Condiciones de Reserva</a>, o <a
+                            href="./websiteTermsOfUse.html" class="link-tou" rel="noopener noreferrer">Condiciones de
+                            Uso del Sitio Web</a> y otros acuerdos, incluso para fines de facturación y cobro.
+                    </li>
+                    <li>Si consideramos que la divulgación es necesaria o apropiada para proteger los derechos, la
+                        propiedad o la seguridad de Yao Shih Spa, nuestros clientes u otros. Esto incluye el
+                        intercambio de información con otras empresas y organizaciones con el fin de protegerse
+                        contra el fraude y reducir el riesgo crediticio.
+                    </li>
+                </ul>
+                </p>
+            </div>
+            <div>
+                <h4 class="sections">Opciones sobre cómo usamos y divulgamos su información</h4>
+                <p class="contents">
+                    Nos esforzamos por ofrecerle opciones con respecto a la información personal que nos
+                    proporciona. Hemos creado mecanismos para brindarle el siguiente control sobre su información:
+                <ul class="list">
+                    <li>Tecnologías de seguimiento y publicidad.
+                    </li>
+                    <li>
+                        Ofertas promocionales de la Compañía. Si le hemos enviado un correo electrónico promocional,
+                        puede enviarnos un correo electrónico de respuesta solicitando que se le excluya de futuras
+                        distribuciones de correo electrónico. Esta opción de exclusión no se aplica a la información
+                        proporcionada a la Compañía como resultado de una compra de un servicio, registro de oferta,
+                        experiencia de servicio de producto u otras transacciones.
+                    <li>Publicidad dirigida. Si no desea que utilicemos la información que recopilamos o que usted
+                        nos proporciona para ofrecer anuncios de acuerdo con las preferencias de audiencia objetivo
+                        de nuestros anunciantes, puede optar por no hacerlo enviándonos un correo electrónico con su
+                        solicitud a yaoshihspa@gmail.com.
+                    </li>
+                </ul>
+                </p>
+
+                <h4 class="sections">Acceso y corrección de su información personal y contribuciones de usuario</h4>
+                <p class="contents">
+                    Puede enviarnos un correo electrónico a yaoshihspa@gmail.com para solicitar acceso, corrección o
+                    eliminación de cualquier información personal que nos haya proporcionado. Es posible que no
+                    aceptemos una solicitud de cambio de información si creemos que el cambio violaría alguna ley o
+                    requisito legal o haría que la información sea incorrecta.
+                </p>
+
+                <h4 class="sections">Seguridad de datos</h4>
+                <p class="contents">Hemos implementado medidas diseñadas para proteger su información personal
+                    contra pérdidas accidentales y acceso, uso, alteración y divulgación no autorizados. Toda la
+                    información que nos proporciona se almacena en nuestros servidores seguros detrás de firewall.
+                    Todas las transacciones de pago se cifrarán mediante tecnología SSL proporcionada por la empresa
+                    de procesamiento de tarjetas de crédito.
+                <p class="contents">La seguridad de su información también depende de usted. Le instamos a que tenga
+                    cuidado al
+                    proporcionar información en áreas públicas del sitio web, como las redes sociales. La
+                    información que comparta en áreas públicas puede ser vista por cualquier usuario del sitio web.
+                </p>
+                <p class="contents">
+                    Lamentablemente, la transmisión de información a través de Internet no es completamente segura.
+                    Aunque hacemos todo lo posible para proteger su información personal, no podemos garantizar la
+                    seguridad de la información personal que transmita a nuestro sitio web. Toda transmisión de
+                    información personal se realiza bajo su propio riesgo. No somos responsables de la elusión de
+                    cualquier configuración de privacidad o medida de seguridad contenida en el sitio web.
+                </p>
+                </p>
+
+                <h4 class="sections">Cambios en nuestra política de privacidad</h4>
+                <p class="contents">Es nuestra política publicar cualquier cambio que hagamos a nuestra política de
+                    privacidad en esta página. Si hacemos cambios materiales en la forma en que tratamos la
+                    información personal de nuestros usuarios, se lo notificaremos a la dirección de correo
+                    electrónico. La fecha de la última revisión de la política de privacidad se identifica en las
+                    reservaciones. Usted es responsable de asegurarse de que tengamos una dirección de correo
+                    electrónico activa y actualizada para usted, y de visitar periódicamente nuestro sitio web y
+                    esta política de privacidad para verificar si hay cambios.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section-2">
+                <div>
+                    <h3>Información de Contacto</h3>
+                    <p><strong>Dirección:</strong> VENEZUELA #S/N, San Juan, 42760 Tezontepec de Aldama, Hgo.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+527731262203">773 126 2203</a></p>
+                    <p><strong>Correo electrónico:</strong> <a
+                            href="mailto:yaoshihspa@gmail.com">yaoshihspa@gmail.com</a></p>
+                </div>
+                <h3>Síguenos</h3>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="footer-section-2">
+                <h3>Horarios de Atención</h3>
+                <p><strong>Lunes a Viernes:</strong> 9:00 AM - 6:00 PM</p>
+                <p><strong>Sábado:</strong> 10:00 AM - 4:00 PM</p>
+                <p><strong>Domingo:</strong> Cerrado</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Spa YAO SHIH. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const body = document.body;
+
+        // Verifica si el modo oscuro estaba habilitado en localStorage
+        const darkModeEnabled = localStorage.getItem("darkMode") === "enabled";
+
+        // Aplica el modo oscuro si estaba habilitado
+        if (darkModeEnabled) {
+            body.classList.add("dark-mode");
+        }
+
+        // Alternar el modo oscuro
+        darkModeToggle.addEventListener("click", (event) => {
+            event.preventDefault(); // Previene el comportamiento por defecto del enlace
+            body.classList.toggle("dark-mode");
+
+            // Guardar el estado en localStorage
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+            }
+        });
+    </script>
+</body>
+
+</html>
