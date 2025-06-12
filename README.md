@@ -22,8 +22,7 @@ Crear un prototipo funcional de sitio web para un spa local, aplicando principio
 
 ## 🚀 Demo en vivo
 
-👉 [Ver demo en GitHub Pages](https://tuusuario.github.io/nombre-del-repo/)  
-*(Sustituye con el enlace real de tu demo)*
+👉 [Ver demo en GitHub Pages](https://iamelvislugo.github.io/spa-website-prototype/)  
 
 
 ## 🛠 Tecnologías utilizadas
@@ -40,7 +39,7 @@ Crear un prototipo funcional de sitio web para un spa local, aplicando principio
 
 El diseño de la interfaz fue realizado en Figma, respetando el branding y estilo original del spa, enfocado en la experiencia del usuario.
 
-📂 [Wireframes del sitio web](./Prototipos/Wireframes.pdf)
+📂 [Wireframes del sitio web](./Prototipos/)
 
 
 ## 📂 Estructura del repositorio
@@ -87,7 +86,7 @@ Se recomienda no reutilizar los datos reales del negocio sin consentimiento prev
 
 
 🧑‍💻 Autor: *Elvis Jesus Martinez Lugo*
-📫 Contacto profesional: [martinezlugoelvisjesus7@gmail.com]  
+📫 Email: martinezlugoelvisjesus7@gmail.com  
 🔗 LinkedIn: [https://www.linkedin.com/in/elvis-jesus-martinez-lugo](https://www.linkedin.com/in/elvis-jesus-martinez-lugo)
 
 
