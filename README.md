@@ -1,4 +1,4 @@
-# 🏠 Proyecto SPA – Sitio Web para un Salón de Belleza
+# 🏠 Proyecto SPA – Prototipo de Sitio Web responsivo para Yao Shih Spa
 
 Este proyecto fue desarrollado como parte de una actividad académica con el objetivo de aplicar conocimientos de diseño UX/UI y desarrollo web front-end. El sitio simula una página web NO OFICIAL de un spa real, para el cual se realizó un acuerdo con la fundadora del negocio, quien autorizó el uso de su spa como referente para fines educativos.
 
@@ -8,7 +8,7 @@ Toda la información utilizada (nombre del spa, ubicación, datos de contacto) e
 
 
 ## 🎯 Objetivo del Proyecto
-Crear un prototipo funcional de sitio web para un spa local, aplicando principios de diseño centrado en el usuario, usabilidad y accesibilidad. La finalidad fue ofrecer una simulación visual y técnica de cómo podría verse y funcionar un sitio profesional para el negocio.
+Crear un prototipo funcional de sitio web para un spa local, aplicando principios de diseño centrado en el usuario, usabilidad y accesibilidad. La finalidad fue crear una solución digital que ayudara a optimizar los procesos del negocio, mejorar su visibilidad en línea y ofrecer una experiencia de usuario agradable y profesional.
 
 
 ## ✨ Características
